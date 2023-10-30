@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {list-style : none;}
+        li {
+            display: inline-block;
+            width: 120px;
+            margin: 10px;
+        }
+        li a {
+            padding: 5px 20px;
+            font-size: 14px;
+            /* 링크 밑줄 안 나오게 */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* a태그 중 href 속성을 가지는 태그만.. */
+        #test1 > li > a[href] {
+            background-color: yellow;
+            border: 1px solid black;
+            font-weight: normal;
+        }
+        /* 속성값이 여러개 선언되는 경우
+        원하는 값이 들어가 있는 태그.. 
+        class 속성 값에 button 값이 포함된 태그.. 단어로 판단..*/
+        #test2 > li > a[class~="button"]{
+        color: red;
+        }
+        /* 링크 파일이 jpg인 파일만 */
+        #test3 > li > a[href$="jpg"]{
+            color: red;
+        }
+
+
+    </style>
+<body>
+    <h2>test1</h2>
+    <ul id="test1">
+        <li><a>메뉴</a></li>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+    </ul>
+
+    <h2>test2</h2>
+    <ul id="test2">
+        <li><a class="button">메뉴</a></li>
+        <li><a href="#" class="button list">menu1</a></li>
+        <li><a href="#" class="list button">menu2</a></li>
+        <li><a href="#" class="button-list">menu3</a></li>
+        <li><a href="#" class="list">menu4</a></li>
+    </ul>
+
+    <h2>test3</h2>
+    <ul id="test3">
+        <li><a>메뉴</a></li>
+        <li><a href="intro.html">menu1</a></li>
+        <li><a href="a.jpg">menu2</a></li>
+        <li><a href="a.docx">menu3</a></li>
+        <li><a href="b.jpg">menu4</a></li>
+    </ul>
+</body>
+</html>

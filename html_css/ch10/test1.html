@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #test1 p {
+        color: red;
+      }
+
+      #test2 div p {
+        color: blue;
+      }
+
+      #test3 > p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="test1">
+      <h1>test1</h1>
+      <p>one</p>
+      <div>
+        <p>two</p>
+        <p>three</p>
+      </div>
+      <p>four</p>
+    </section>
+
+    <section id="test2">
+        <h1>test2</h1>
+        <p>one</p>
+        <div>
+          <p>two
+              <p>two의 자식</p>
+          </p>
+          <p>three</p>
+        </div>
+        <p>four</p>
+        <p>만약
+            <div>디아이브이의
+                 <p>이렇게 된다면</p>
+            </div>
+        </p>
+      </section>
+
+    <section id="test3">
+      <h1>test3</h1>
+      <p>one</p>
+      <div>
+        <p>two</p>
+        <p>three</p>
+      </div>
+      <p>four</p>
+    </section>
+
+
+  </body>
+</html>

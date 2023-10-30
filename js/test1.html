@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      #a1 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="a1">javaScript</h1>
+    <script>
+      //자바스크립트에서의 한줄 주석
+      /*
+        자바스크립트에서의 여러줄 주석
+        */
+      //javascript에서 html의 dom node획득
+      //tag를 부르는 용어가 element(요소) - node(js에서 주로 사용하는 용어)
+      //DOM - Document Object Model
+      //전에 html 문서가 계층구조로.. (DOM 구조)
+      //id로 html 문서 내의 node를 획득..
+      var heading = document.querySelector("#a1");
+      //document는 html 문서 자체를 가리킴..
+      //node 유저 클릭 이벤트..
+      heading.onclick = function () {
+        heading.style.color = "blue";
+      };
+    </script>
+  </body>
+</html>

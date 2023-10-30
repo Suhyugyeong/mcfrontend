@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function myEvent() {
+        // document 문서에 출력..
+        // 프로그램에서 문자열은 '' 혹은 "" 로 묶여 있어야 한다..
+        // 언어에 따라 '' 와 "" 를 구분해서 사용하는 언어도 있지만..
+        // js 에서는 '' 와 "" 을 구분하지는 않는다.. 모두 문자열이라는 의미..
+        var result = prompt("당신의 이름을 입력해 주세요!!");
+        // '' , "" 로 묶이는 문자열은 정적 문자열이다..
+        // 정적 문자열내에.. 동적 데이터를 삽입하려면.. + 로 연결해서..
+        document.write("안녕하세요 " + result + "님, 환영합니다.");
+        document.write(
+          '<div>안녕하세요 <b style="color:blue;">' +
+            result +
+            "</b>님, 환영합니다. </div>"
+        );
+
+        console.log(result);
+        //log 로 출력하면서 , 으로 구분해서 여러개 같이 출력 가능..
+        console.log("안녕하세요", result, "님 환영합니다.");
+        //log 함수를 이용하지 않고.. 로그를 구분하기 위해서 info, error, warn 함수를
+        //이용해서 출력할 수도 있다..
+        console.info("info log입니다. ", result);
+        console.error("error log 입니다.", result);
+        console.warn("warn log 입니다.", result);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="myEvent()">click me</button>
+  </body>
+</html>

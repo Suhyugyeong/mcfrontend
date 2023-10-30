@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .align1 {
+        text-align: center;
+        /* p 태그의 테두리를 나타나게 하려고 */
+        border: 3px solid black;
+        height: 50px;
+      }
+      .align2 {
+        text-align: center;
+        border: 3px solid black;
+        /* 적용되는 p 태그의 세로 사이즈를 지정 */
+        height: 50px;
+        /* height와 line-height를 통일하게 줘서.. 
+        세로방향 중앙정렬 시키려고 한 것이다..*/
+        line-height: 50px;
+      }
+
+      .align3 {
+        text-align: center;
+        border: 3px solid black;
+        /* p, div에 높이값을 지정하거나, line-height를 지정할 때는 조심!!
+        일반적으로는 height는 출력된 문자열의 크기만큼 자동으로 사이즈가 잡히게..auto로..
+         */
+        height: 50px;
+        /* line-height는 한줄이 차지하는 높이를 의미하며 숫자값으로 고정시킬 수도 있는데..
+        보통의 경우에는, 지정하더라도 출력되는 문자열의 크기에 비례해서 지정하는 것이 일반적.. */
+        line-height: 50px;
+      }
+
+      .align4 {
+        text-align: left;
+        border: 3px solid black;
+        height: auto;
+        /* 문자열을 기준으로 1.5배 */
+        line-height: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="align1">hello world - CSS</p>
+    <p class="align2">hello world - CSS</p>
+    <p class="align3">hello world - CSS <br />HTML <br />JAVASCRIPT</p>
+    <p class="align4">hello world - CSS <br />HTML <br />JAVASCRIPT</p>
+  </body>
+</html>

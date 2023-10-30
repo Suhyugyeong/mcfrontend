@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 500px;
+        height: 300px;
+      }
+      #test1 {
+        background: linear-gradient(
+          to bottom,
+          #06f,
+          white 30%,
+          rgb(254, 254, 1) 60%,
+          #f00
+        );
+      }
+
+      #test2 {
+        background: radial-gradient(
+          circle farthest-corner at 30% 40%,
+          white,
+          yellow,
+          green
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+  </body>
+</html>

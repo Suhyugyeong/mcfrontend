@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 이미지 포멧 고려할 때, (gif, bmp, jpg, png, webp)
+    퍼포먼스 (네트워크, 로딩) 고려
+    이미지 표현할 수 있는 색상수 고려
+    투명 컬러를 표현할 수 있는지 고려
+    애니메이션 지원하는지 고려
+    압축 가능여부 고려
+    압축시 이미지 손실이 발생여부 고려
+    레스터이냐 벡터냐 고려
+    
+    
+-->
+    <h3>이미지 테스트</h3>
+    <p>속성으로 사이즈 지정</p>
+    <img src="ch4/images/salad.jpg" alt="salad" width="128" height="128" />
+    <br />
+    <img
+      src="http://127.0.0.1:5500/ch4/ch4/images/salad.jpg"
+      alt="salad"
+      width="128"
+      height="128"
+    />
+    <p>스타일로 사이즈 지정</p>
+    <img
+      src="ch4/images/salad.jpg"
+      alt="salad"
+      style="width: 127px; height: 128px"
+    />
+
+    <!-- 한 방향의 사이즈만 지정하면 종횡비 유지한 상태에서 다른 방향 사이즈 알아서 조정 -->
+
+    <p>화면 사이즈를 기준으로 퍼센트로 지정 가능</p>
+    <img src="./ch4/images/salad.jpg" alt="salad" width="50%" />
+
+    <p>네트워크 이미지</p>
+    <p>
+      우리 사이트 도메인은 127.0.0.1 localhost 이다. 다른 도메인의 이미지 출력
+      안 되는 경우는, 프로그램으로 막았을 경우
+    </p>
+    <img
+      src="https://1000logos.net/wp-content/uploads/2021/05/Google-logo.png"
+      alt="googleLogo"
+      width="20%"
+    />
+
+    <p>image map</p>
+    <img src="./ch4/images/workplace.jpg" usemap="#imgMap" />
+
+    <p>
+      map 을 선언하고.. 선언된 map 을 img 태그에서 이용.. name 은 선언된 map 을
+      식별하기 위한 개발자 문자열..
+    </p>
+    <map name="imgMap">
+      <!-- area 태그로 이미지내의 특정 영역을 지칭..  -->
+      <area
+        shape="rect"
+        coords="34, 44, 270, 350"
+        href="http://www.google.com"
+      />
+      <area
+        shape="rect"
+        coords="290, 172, 333, 250"
+        href="http://www.naver.com"
+      />
+      <area shape="circle" coords="377, 300, 44" href="http://www.daum.net" />
+    </map>
+  </body>
+</html>

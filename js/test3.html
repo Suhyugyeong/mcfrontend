@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var a1 = document.querySelector("#a1");
+      al.onclick = function () {
+        a1.style.color = "red";
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="a1">첫번째 영역</h1>
+    <script>
+      var a2 = document.querySelector("#a2");
+      a2.onclick = function () {
+        a2.style.color = "red";
+      };
+    </script>
+    <h1 id="a2">두번째 영역</h1>
+    <h1 id="a3">세번째 영역</h1>
+    <script>
+      /*js 코드는 html 문서 어디에도 작성될 수 있다..
+        dom node(tag객체)를 획득하는 코드는 꼭 html parser에 의해 그 태그 해석이 끝난 후,
+        즉, 메모리에 그 태그 정보가 올라간 후에(dom node가 만들어진 후) 획득해서 이용해야 한다..
+        
+        js가 하는 대부분의 코드는 html tag  핸들링 아닌가?
+        대부분의 js 코드는 html 문서 마지막에 작성하는 것이 좋다는 것인가?
+        
+        일반적으로 js 코드는 head 영역에 명시..*/
+      var a3 = document.querySelector("#a3");
+      a3.onclick = function () {
+        a3.style.color = "red";
+      };
+    </script>
+  </body>
+</html>

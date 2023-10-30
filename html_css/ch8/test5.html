@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        width: 50px;
+        height: 50px;
+      }
+      #content1 {
+        background-color: #f00;
+      }
+      #content2 {
+        background-color: #0f0;
+      }
+      #content3 {
+        background-color: #00f;
+      }
+      #content4 {
+        width: 200px;
+        height: 200px;
+        background-color: #ff0;
+      }
+      #content5 {
+        background-color: #0ff;
+      }
+      #content6 {
+        background-color: #f0f;
+      }
+
+      /* relative test..........
+    상대위치.. 자신이 원래 출력되어야 하는 위치를 기준으로.. */
+      #content2 {
+        position: relative;
+        left: 10px;
+        top: 10px;
+      }
+      #content3 {
+        position: relative;
+        left: 10px;
+        top: 10px;
+      }
+      /* 부모가 있는 경우..  
+    relative 는 부모와 관련없다.. 원래 자신의 위치에서 미세한 조정*/
+      #content5 {
+        position: relative;
+        left: 10px;
+        top: 10px;
+      }
+      #content6 {
+        position: relative;
+        left: 20px;
+        top: -10px;
+      }
+
+      /* absolute..... 부모를 기준으로.. 부모가 없으면 브라우저 창..... */
+      #content7 {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+        background-color: gray;
+      }
+      #content8 {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+        background-color: lightgray;
+      }
+
+      /* 부모가 있다면..???  
+    상위 태그중에서 relative 가 선언된 태그를 기준으로 한다.
+    없다면 여전히 브라우저가 된다.*/
+      #content9 {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+      }
+
+      #content10 {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        background-color: pink;
+      }
+
+      #content11 {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: relative;
+      }
+
+      #content12 {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="content1"></p>
+    <p id="content2"></p>
+    <p id="content3"></p>
+    <div id="content4">
+      <p id="content5"></p>
+      <p id="content6"></p>
+    </div>
+
+    <p id="content7"></p>
+    <p id="content8"></p>
+    <div id="content9">
+      <p id="content10"></p>
+    </div>
+    <div id="content11">
+      <p id="content12"></p>
+    </div>
+  </body>
+</html>

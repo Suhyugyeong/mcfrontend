@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .items {
+        padding: 10px;
+        background-color: yellowgreen;
+        border: 1px solid black;
+      }
+      .items:nth-child(odd) {
+        background-color: purple;
+      }
+      #test1 {
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-rows: minmax(100px, auto);
+      }
+
+      #test2 {
+        display: grid;
+        /* 최소 가로방향으로 하나의 항목을 위해 300px은 확보가 되어야 하고
+        브라우저 사이즈가 더 크면 늘어날 수 있다.. 
+        늘어나다가.. 300px 하나가 더 추가할 수 있을 정도로 늘어나면 하나 더 한줄에 붙이고..
+        줄어들다가.. 300px을 옆에 더 나열하기 힘들면 아래로 내리고..*/
+        grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test1">
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">hello world!</div>
+    </div>
+    <br />
+    <div id="test2">
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">
+        hello world! hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+        world!hello world!hello world!hello world!hello world!hello world!hello
+      </div>
+      <div class="items">hello world!</div>
+    </div>
+  </body>
+</html>

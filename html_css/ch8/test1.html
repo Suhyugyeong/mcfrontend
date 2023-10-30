@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 요소의 box model 이 어느정도 영역을 차지하는지 눈으로 확인하기 위해서.. */
+      div {
+        /* style, size, color 같이 지정.. */
+        border: 2px solid #000;
+        margin-bottom: 20px;
+      }
+
+      #box1 {
+        /* block 요소에만 사이즈 지정된다!! inline 요소는 사이즈 지정 적용 안 된다!! 
+        사이즈를 지정해도 block요소가 해제되지 않는다!!*/
+        width: 400px;
+        height: 100px;
+      }
+      #box2 {
+        width: 50%;
+        height: 100px;
+      }
+
+      #box3 {
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid coral;
+      }
+
+      #box4 {
+        /* size가 어느 box를 지칭하는지 설정 */
+        box-sizing: border-box;
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid coral;
+      }
+
+      #box5,
+      #box6 {
+        width: 200px;
+        height: 100px;
+      }
+
+      #box5 {
+        box-shadow: 2px -2px 5px 0px;
+      }
+
+      #box6 {
+        box-shadow: 5px 5px 15px 5px blue;
+      }
+
+      #round1 {
+        border-radius: 25px;
+      }
+
+      #round2 {
+        border-radius: 50%;
+      }
+
+      #round3 {
+        /* 가로 50% 세로 30% */
+        border-bottom-right-radius: 50% 30%;
+        border-top-left-radius: 50px 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>width</h1>
+    <div id="box1">내용이 없으면 선으로만 나와요.</div>
+    <div id="box2"></div>
+
+    <h1>box-sizing</h1>
+    <div id="box3"></div>
+    <div id="box4"></div>
+
+    <h1>box-shadow</h1>
+    <div id="box5"></div>
+    <div id="box6"></div>
+
+    <h1>radius</h1>
+    <img src="images/cat.jpg" />
+    <img id="round1" src="images/cat.jpg" />
+    <img id="round2" src="images/cat.jpg" />
+    <img id="round3" src="images/cat.jpg" />
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #test1 {
+        background-color: red;
+      }
+
+      #test2 {
+        background-color: red;
+      }
+
+      #test2 {
+        background-color: blue;
+      }
+
+      .bg_blue {
+        background-color: blue;
+      }
+
+      #block1,
+      #block2 {
+        background-color: red;
+      }
+
+      /* selector를 여러개 나열했지만 , 콤마로 구분한 것은 아니다.. 그룹 selector 아니다..
+      #test4 하위에 있는 태그 중 태그명이 p인...
+      */
+      #test4 p {
+        background-color: red !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      상속 - 부모에 적용된 스타일이 자식에게 그대로 상속되어 적용된다.. 물론
+      원한다면, 자식에서 부모의 스타일을 재정의해서 교체할 수 있다..
+    </h3>
+    <div id="test1">
+      <p style="color: white">Hello World!</p>
+      <p style="color: white; background-color: blue">Hello World!</p>
+    </div>
+
+    <h3>
+      코드순서.. 동일한 요소에 여러번 스타일이 정의될 수도 있다.. 작성된 순서에
+      따라 마지막 스타일이 적용된다.. 덮어쓰기 개념이다..
+    </h3>
+    <div id="test2">
+      <p>hello world!</p>
+    </div>
+
+    <h3>
+      명시성 inline => id => class => 태그명 순서로 적용된다.. 적용범위가 더
+      작은게 우선순위가 된다..
+    </h3>
+    <div id="test3">
+      <p class="bg_blue" id="block1" style="background-color: coral">
+        hello world~
+      </p>
+      <p class="bg_blue" id="block2">hello world~</p>
+      <p class="bg_blue">hello world~</p>
+    </div>
+
+    <h3>중요도 교체..</h3>
+    <div id="test4">
+      <p>hello world~!</p>
+      <p style="background-color: green">hello world~!</p>
+      <p style="background-color: green !important">hello world~!</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        /* 이 영역의 요소는 flex layout이 적용된다는 선언!! */
+        display: flex;
+        background-color: lightgrey;
+        border: 1px solid black;
+        margin-bottom: 30p;
+      }
+
+      .box {
+        padding: 5px 45px;
+        margin: 5px;
+        width: 80px;
+        background-color: lightcoral;
+      }
+
+      #test1 {
+        /* flex-direction을 지정하지 않으면 기본 row.. */
+        /* 한줄로, 개행 안 됨.. */
+        /* flex-wrap: nowrap; */
+        /* 자동 개행.. */
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+
+      p {
+        color: white;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="test1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+      <div class="box"><p>4</p></div>
+      <div class="box"><p>5</p></div>
+      <div class="box"><p>6</p></div>
+    </div>
+  </body>
+</html>

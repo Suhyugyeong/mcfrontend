@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>picture test</p>
+    <!-- 문자열에 비해서 이미지는 사이즈가 크기 때문에 다운로드, 로딩에 부담이 된다 
+    우리의 웹페이지가 유저 데스크탑에서만 이용되는 것이 아니라 폰, 테블릿 등에서도 이용
+    데스크탑처럼 넓은 디바이스에서 우리 이미지가 선명하게 나오게 하기 위해서
+    큰 사이즈 이미지를 준비했다. 10m를 가정
+    데스크탑, 중간사이즈, 작은사이즈 각각 원하는 용량의 사진을 적용하고 싶을거임.
+    그럴 때 동적으로 유저 디바이스의 사이즈를 획득하고, 판단해서 어떤 이미지가 필요한지 판단해야 함.
+    클라이언트 사이드 동적은 js로 처리하면 가능.
+    html5가 이 문제를 해결하기 위해, 표준이 정의되었고, 그 표준이 picture 태그이다.-->
+    <!-- 사이즈에 대응해야 하는 곳만 picture로 출력하고 그 외는 img 태그 이용하면 됨. -->
+    <picture>
+      <!-- 1000px 이상에서는 -->
+      <source media="(min-width: 1000px)" srcset="./ch4/images/salad.jpg" />
+      <!-- 1000~800 에서는 -->
+      <source media="(min-width: 800px)" srcset="./ch4/images/workplace.jpg" />
+      <!-- 위의 조건에 해당하지 않는 나머지 경우, -->
+      <img src="./ch4/images/tangerines.jpg" />
+    </picture>
+  </body>
+</html>

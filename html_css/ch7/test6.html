@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        color: gray;
+        line-height: 1.5em;
+      }
+      #one {
+        width: 90%;
+        border: 3px solid;
+        border-collapse: collapse;
+        /* border가 겹치는 부분, 즉 table과 td의 선이 두 줄로 보일 수 있기 때문에 border-collapse를 이용.. */
+        border-spacing: 1em;
+        margin: 0 auto;
+      }
+      /* table 제목 */
+      #one caption {
+        caption-side: bottom;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-align: right;
+      }
+      /* id가 one인 태그 하위에 tr 태그, tr에 마우스가 올라온 경우에를 조건으로.. */
+      #one tr:hover {
+        background-color: lightgray;
+        color: white;
+      }
+
+      #one th,
+      #one td {
+        border: 1px solid gray;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="one">
+      <caption>
+        즐겨 듣는 곡
+      </caption>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>곡명</th>
+          <th>아티스트</th>
+          <th>앨범</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>가을이긴 한가봐</td>
+          <td>종현, 고영배</td>
+          <td>월간 라이브 커넥션</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>갈게</td>
+          <td>카더가든</td>
+          <td>월간 라이브 커넥션</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>거짓말 거짓말 거짓말</td>
+          <td>이적</td>
+          <td>월간 라이브 커넥션</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>hello</p>
+    <!-- block요소에 사이즈 지정 - 적용은 잘 된다 그러나 block요소가 바뀌지는 않는다.
+    한줄에 다른 요소가 못온다.. -->
+    <div style="width: 100px"></div>
+    <!-- inline요소는 사이즈 속성이 적용 안 된다.. 무조건 auto.. 
+    width 줘도 값이 안 먹음..  -->
+    <a style="width: 100px">google</a>
+    <a>naver</a>
+  </body>
+</html>

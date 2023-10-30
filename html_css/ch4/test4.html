@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 태아블 구조를 조금 명확하게 출력허개 위해  -->
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        /* 표의 테두리와 샐의 테두리 사이의 간격을 어떻게? */
+      }
+
+      th,
+      td {
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 400px">
+      <caption>
+        회원정보
+      </caption>
+      <tr>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>전화번호</th>
+      </tr>
+      <tr>
+        <td>홍길동</td>
+        <td>gildong@gmail.com</td>
+        <td>010-7777-7777</td>
+      </tr>
+      <tr>
+        <td>홍길동</td>
+        <td>gildong@gmail.com</td>
+        <td>010-7777-7777</td>
+      </tr>
+      <tr>
+        <td>홍길동</td>
+        <td>gildong@gmail.com</td>
+        <td>010-7777-7777</td>
+      </tr>
+      <tr>
+        <td>홍길동</td>
+        <td>gildong@gmail.com</td>
+        <td>010-7777-7777</td>
+      </tr>
+    </table>
+    <p>span</p>
+    <table>
+      <tr>
+        <td colspan="4"><center>title</center></td>
+        <!-- 가로방향으로 몇 칸 차지? -->
+      </tr>
+      <tr>
+        <td colspan="2"><center>sub</center></td>
+        <td colspan="2"><center>sub</center></td>
+      </tr>
+      <tr>
+        <td>item</td>
+        <td>item</td>
+        <td>item</td>
+        <td>item</td>
+      </tr>
+    </table>
+    <p>colgroup, col,</p>
+    <p>테이블에 설정된 스타일의 반복설정을 피하기 위해 사용</p>
+    <table>
+      <colgroup span="2" style="background-color: coral"></colgroup>
+      <!-- 굳이 colgroup을 쓰는 이유는? -->
+      <tr>
+        <td>학과</td>
+        <td>이름</td>
+        <td>학번</td>
+      </tr>
+      <tr>
+        <td>컴퓨터공학과</td>
+        <td>하이브리드리오</td>
+        <td>1809808</td>
+      </tr>
+    </table>
+    <br />
+    <table>
+      <colgroup>
+        <col span="2" style="background-color: burlywood" />
+        <col span="1" />
+        <col span="3" style="background-color: palevioletred" />
+        <col span="1" style="visibility: collapse" />
+      </colgroup>
+      <!-- 세부적으로 설정하고 싶을 땐 colgroup 내에 col로 설정 -->
+      <tr>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th>토</th>
+        <th>일</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+      </tr>
+    </table>
+  </body>
+</html>

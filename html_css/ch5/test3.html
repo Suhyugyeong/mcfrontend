@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>checkbox - name이 다른 경우</p>
+    <!--  http://127.0.0.1:5500/ch5/add ? a1=on & a2=on & a3=on -->
+    <form action="add">
+      <input type="checkbox" name="a1" />야구<br />
+      <input type="checkbox" name="a2" />축구<br />
+      <input type="checkbox" name="a3" />농구<br />
+      <input type="submit" />
+    </form>
+
+    <p>checkbox - name이 같은 경우</p>
+    <!-- http://127.0.0.1:5500/ch5/add ? a1=on & a1=on & a1=on
+    선택값이 모두 동일 이름으로 넘어감으로 서버에서는 배열로 데이터를 획득할 것임
+    애매해질 수 있음.. 이름이 동일해서 정확히 어느 것이 선택된 것인지 확인이 불가할 수도 ..(서버의 입장에서)
+    
+    -->
+    <form action="add">
+      <input type="checkbox" name="a1" />야구<br />
+      <input type="checkbox" name="a1" />축구<br />
+      <input type="checkbox" name="a1" />농구<br />
+      <input type="submit" />
+    </form>
+    <!-- radio 버튼은 그룹화하는 게 목적이기 때문에 name을 동일하게 적용해줘야 함
+    단, checkbox는 개발자 맘대로 -->
+
+    <p>checkbox - name이 같으나 value를 지정하는 경우</p>
+    <!-- http://127.0.0.1:5500/ch5/add ? a1=baseball & a1=soccer & a1=basketball
+    value값을 지정하게 되면 서버에 넘기는 데이터가 on이 아니라 각 태그에 선언된 value값이 넘어간다
+    즉, on 대신에 value값이 넘어가면서 name이 동일해도 식별이 가능해짐..
+    그러니까 value값을 안 주려면 name으로 식별을 해주거나, name을 동일하게 주려면 value값을 지정해놔야 한다..    
+    -->
+    <form action="add">
+      <input type="checkbox" name="a1" value="baseball" />야구<br />
+      <input type="checkbox" name="a1" value="soccer" />축구<br />
+      <input type="checkbox" name="a1" value="basketball" />농구<br />
+      <input type="submit" />
+    </form>
+
+    <p>radio</p>
+    <form action="add">
+      <!-- 단일 선택을 위해선 name값을 통일해야 함..
+        http://127.0.0.1:5500/ch5/add ? a1=on
+        radio는 이름을 동일하게 지정 그런데 value 값을 주지 않으면 서버에서 식별할 수 없음..
+        그래서 radio의 경우, 반드시 value 값이 들어가야 함
+        http://127.0.0.1:5500/ch5/add ? a1=soccer
+    -->
+      <input type="radio" name="a1" value="baseball" />야구<br />
+      <input type="radio" name="a1" value="soccer" />축구<br />
+      <input type="radio" name="a1" value="basketball" />농구<br />
+      <input type="submit" />
+    </form>
+
+    <p>number, range</p>
+    <form action="add">
+      <!-- http://127.0.0.1:5500/ch5/add ? a1=1 & a2=50 & a3=30 -->
+      <input type="number" name="a1" min="1" max="5" /><br />
+      <input
+        type="number"
+        name="a2"
+        min="0"
+        max="100"
+        step="10"
+        value="30"
+      /><br />
+      <input type="range" name="a3" min="0" max="50" /><br />
+      <input type="submit" />
+    </form>
+
+    <p>date, time</p>
+    <form action="add">
+      <!-- http://127.0.0.1:5500/ch5/add ? a1=2023-10-20 & a2=14%3A34
+            14%3A34 : url encoding - url은 영문자, 숫자, 일부 특수키 외에는 못 쓰기 때문에
+            나머지는 %의 16진수로 표현..
+         -->
+      <input type="date" name="a1" min="2023-10-17" max="2023-10-31" /><br />
+      <input type="time" name="a2" /><br />
+      <input type="submit" />
+    </form>
+
+    <p>button</p>
+    <form action="add">
+      <input type="text" name="name" />
+      <input type="submit" value="submit" />
+      <input type="button" value="button" onclick="alert('hi')" />
+      <!-- button은 js를 사용해야 -->
+      <input type="reset" value="reset" />
+    </form>
+
+    <p>file, hidden</p>
+    <form action="add">
+      <!-- http://127.0.0.1:5500/ch5/add ? name=yugyeong & a1=10 & a2=20 & file1= & file2= 
+        서버로 넘어갔을 때는 hidden 값도 넘어감..
+        input type="file"도 일반 문자열처럼 서버에 잘 전송되었다고 오해하지 말자!!
+        위의 파일 정보가 넘어간건 http request query 문자열(*)로, 파일명만 넘어간거다..
+        파일내용은 넘어가지 않았다..
+        파일 upload는 파일 내용이, text 파일이면 파일 안의 문자열이, jpg이면 바이트 값이 
+        js로 선택한 파일을 읽어서 서버에 넘겨야 한다!!
+        -->
+      <input type="text" name="name" /><br />
+      <input type="hidden" name="a1" value="10" /><br />
+      <input type="hidden" name="a2" value="20" /><br />
+      <input type="file" name="file1" /><br />
+      <input type="file" name="file2" multiple /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

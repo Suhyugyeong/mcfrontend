@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #test1 > p:first-child {
+        color: red;
+      }
+      #test1 > p:last-child {
+        color: yellow;
+      }
+      /* nth-child랑 nth-of-type이랑 구분할것!! */
+      #test2 > :nth-child(2) {
+        color: green;
+      }
+
+      #test2 > p:nth-of-type(2) {
+        color: blue;
+      }
+
+      ul li {
+        margin: 15px;
+      }
+
+      .new::after {
+        content: "new";
+        font-size: small;
+        padding: 2px 4px;
+        margin: 0px 10px;
+        border-radius: 2px;
+        background-color: red;
+        color: white;
+      }
+
+      .new::before {
+        content: "new";
+        font-size: small;
+        padding: 2px 4px;
+        margin: 0px 10px;
+        border-radius: 2px;
+        background-color: blue;
+        color: white;
+      }
+
+      #test4::first-line {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>test1</h2>
+    <div id="test1">
+      <p>one</p>
+      <p>two</p>
+      <p>three</p>
+    </div>
+
+    <h2>test2</h2>
+    <div id="test2">
+      <p>one</p>
+      <div>two</div>
+      <p>three</p>
+      <div>four</div>
+      <p>five</p>
+      <div>six</div>
+    </div>
+
+    <h2>test3</h2>
+    <div id="test3">
+      <ul>
+        <li class="new">item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li class="new">item4</li>
+      </ul>
+    </div>
+
+    <h2>test4</h2>
+    <div id="test4">
+      <h1>
+        hello wolrd! hello wolrd! hello wolrd! hello wolrd! hello wolrd! hello
+        wolrd! hello wolrd! hello wolrd! hello wolrd! hello wolrd! hello wolrd!
+        hello wolrd! hello wolrd! hello wolrd! hello wolrd! hello wolrd! hello
+        wolrd! hello wolrd! hello wolrd! hello wolrd! hello wolrd! hello wolrd!
+      </h1>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //js 내장함수로 띄우는 다이얼로그는 브라우저 내장 다이얼로그이다..
+      //다이얼로그 UI가 예쁘지는 않고..
+      //다이얼로그가 닫기 전까지 유저는 브라우저 창을 사용할 수 없다..
+      //유저의 행동을 방해할 수 있다.. 과도하게 사용하는 것은 좋지 않으니 선별적으로 사용..
+      function myEventFun1() {
+        //alert 다이얼로그는 유저에게 간단한 메시지를 출력하기 위한 용도..
+        //값이 발생하지 않는다(undefined)
+        var result = alert("I am alert dialog.");
+        console.log(result);
+      }
+      function myEventFun2() {
+        //유저에게 무언가를 물어봐서.. 확인, 취소 버튼을 눌렀는지 알아내기 위해서..
+        //확인시, true 취소시, false
+        var result = confirm("I am confirm dialog.");
+        console.log(result);
+      }
+      function myEventFun3() {
+        //다이얼로그에서 간단하게 유저에게 무언가 데이터를 입력받고자 할 때..
+        //유저 입력값, 혹은 입력하지 않고 취소한 경우는 null
+        var result3 = prompt("I am prompt dialog.");
+        console.log(result3);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- dialog를 띄우려면 js코드가 실행, 버튼 클릭 이벤트 발생 시점에..
+    유저 이벤트(click event)를 등록해야 한다..
+    이벤트 등록을 js에서 할 수도 있고..
+    html 태그 부분에서 할 수도 있고..
+     -->
+    <button onclick="myEventFun1()">alert</button>
+    <br />
+    <button onclick="myEventFun2()">confirm</button>
+    <br />
+    <button onclick="myEventFun3()">prompt</button>
+  </body>
+</html>

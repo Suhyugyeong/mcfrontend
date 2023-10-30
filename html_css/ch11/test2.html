@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        margin: 20px auto;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin: 50px;
+      }
+      /* animation 선언.. */
+      @keyframes a1 {
+        from {
+          border: 1px solid orange;
+        }
+        to {
+          border: 1px solid black;
+          border-radius: 50%;
+        }
+      }
+      /* 선언된 animation을 태그에 적용 */
+      #box1 {
+        background-color: green;
+        animation-name: a1;
+        animation-duration: 3s;
+      }
+
+      @keyframes a2 {
+        from {
+          transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        }
+        50% {
+          transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+        }
+        to {
+          transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+        }
+      }
+
+      @keyframes a3 {
+        from {
+          background-color: red;
+        }
+        50% {
+          background-color: yellow;
+        }
+        to {
+          background-color: blue;
+        }
+      }
+
+      #box2 {
+        width: 100px;
+        height: 100px;
+        margin: 60px auto;
+        animation: a3 1.5s infinite;
+      }
+
+      #box3 {
+        width: 100px;
+        height: 100px;
+        margin: 60px auto;
+        animation: a2 1.5s infinite, a3 1.5s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="box" id="box1"></div>
+      <div class="box" id="box2"></div>
+      <div class="box" id="box3"></div>
+    </div>
+  </body>
+</html>

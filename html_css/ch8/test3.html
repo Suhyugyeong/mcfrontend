@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>test1 - float</h3>
+    <img src="images/tree.png" width="20" style="border: 3px solid red" />
+    강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의 스타일있지..
+    강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의 스타일있지..
+    강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의 스타일있지..
+    강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의 스타일있지..
+
+    <!-- 위처럼 하면 이미지 옆에 문자열이 출력되기는 한다..
+    그러나, 같은 라인이 이미지에 의해 라인 높이가 커진다..
+    또, 문자열이 이미지 옆에 한줄만 나온다..
+    문자열이 div, p 태그 등으로 묶여 있어야 css, js로 제어 가능하다,,
+    -->
+
+    <h3>test2 - float</h3>
+    <img src="images/tree.png" width="20" style="border: 3px solid red" />
+    <div>
+      강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의
+      스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은
+      강남의 스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고
+      강남은 강남의 스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의
+      예쁜이있고 강남은 강남의 스타일있지..
+    </div>
+
+    <!-- 위처럼 하면 문자열이 태그로 묶여 있으므로, css, js로 문자열 제어가 되지만..
+    div, p 태그가 block 요소여서 이미지 옆에 문자열이 나오지 않는다..
+    그때, 문자열 박스 내에 이미지를 올려서 이미지 옆에 한줄, 두줄 등..
+    옆에 문자열이 나오게하기 위해 쓰는게 float다.. -->
+
+    <h3>test3 - float</h3>
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: left"
+    />
+    <div>
+      강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의
+      스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은
+      강남의 스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고
+      강남은 강남의 스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의
+      예쁜이있고 강남은 강남의 스타일있지..
+    </div>
+
+    <!-- 여러개 올려보기.. -->
+    <h3>test4 - float</h3>
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: left"
+    />
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: left"
+    />
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: right"
+    />
+    <div>
+      강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의
+      스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은
+      강남의 스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고
+      강남은 강남의 스타일있지.. 강동은 강동의 귀요미있고 강서는 강서의
+      예쁜이있고 강남은 강남의 스타일있지..
+    </div>
+
+    <!-- float을 해제해야 하는 경우 -->
+    <h3>test5 - float</h3>
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: left"
+    />
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: left"
+    />
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: right"
+    />
+    <div>
+      강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의
+      스타일있지..
+    </div>
+    <div>
+      강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의
+      스타일있지..
+    </div>
+
+    <!-- 두번째 문자열은 이미지가 위에 올라오지 못하고 할 수도 있다.. -->
+    <h3>test6 - float</h3>
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: left"
+    />
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: left"
+    />
+    <img
+      src="images/tree.png"
+      width="20"
+      style="border: 3px solid red; float: right"
+    />
+    <div>
+      강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의
+      스타일있지..
+    </div>
+    <div style="clear: both">
+      강동은 강동의 귀요미있고 강서는 강서의 예쁜이있고 강남은 강남의
+      스타일있지..
+    </div>
+    <!-- float 속성은 이미지가 문자열이 옆에 나오게 하기 위해 제공되었는데..
+    이 속성을 이용해 화면 전체 layout을 많이 잡았다..
+    물론 최근에는 flex, grid 등을 위해 layout을 많이 잡지만, 너무 오랫동안 사용되어서..-->
+  </body>
+</html>

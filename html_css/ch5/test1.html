@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>form</p>
+    <!-- 
+http://127.0.0.1:5500/ch5/addUser ? fname=aaa&lname=bbb
+url ? data 형식
+get 방식은 서버 전송 데이터를 http request header의 url에 추가해서
+fname=aaa&lname=bbb : 서버 전송 데이터 http request (query문자열)
+query 문자열은 항상 key(input 안의 name 속성임)=value 형태
+여러건을 전달하려면 꼭 &으로 연결해야 한다
+key=value&key=value;
+ -->
+    <form action="addUser">
+      <!-- id와 name은 개발자가 식별을 위해 지정한 문자열이나 목적은 다름
+        id: front에서 js 혹은 css로 이 input 태그를 이용할 때 식별자(프론트와 관련)
+        name: 이 input 태그에 유저에 입력한 데이터를 서버에 전송할 때의 식별자(백엔드와 관련) -->
+      first name:<input type="text" id="fname" name="fname" /><br />
+      last name:<input type="text" id="lname" name="lname" /><br />
+      <!-- value는 버튼 문자열 -->
+      <input type="submit" value="가입" />
+    </form>
+
+    <p>target</p>
+    <form action="addUser" target="_blank">
+      first name:<input type="text" id="fname" name="fname" /><br />
+      last name:<input type="text" id="lname" name="lname" /><br />
+      <input type="submit" value="가입" />
+    </form>
+
+    <p>post</p>
+    <form action="addUser" method="post">
+      <!-- http://127.0.0.1:5500/ch5/addUser
+    post 방식으로 서버 요청이 들어감.. 유저 입력 데이터가
+http request header에 추가되지 않음 
+데이터는 http request body에 포함돼서 전송됨
+그 데이터도 http request query 문자열로 구성-->
+      first name:<input type="text" id="fname" name="fname" /><br />
+      last name:<input type="text" id="lname" name="lname" /><br />
+      <input type="submit" value="가입" />
+    </form>
+
+    <p>
+      원한다면 get, post 처럼 일부 데이터는 url에 추가해서, 일부 데이터는 body에
+      추가해서도 가능
+    </p>
+    <form action="addUser?a1=10&a2=20" method="post">
+      <!-- request URL : http://127.0.0.1:5500/ch5/addUser?a1=10&a2=20
+            action 뒤 원하는 내용을 작성해 넘겨줄 수 있다..
+request method : POST -->
+      first name:<input type="text" id="fname" name="fname" /><br />
+      last name:<input type="text" id="lname" name="lname" /><br />
+      <input type="submit" value="가입" />
+    </form>
+  </body>
+</html>

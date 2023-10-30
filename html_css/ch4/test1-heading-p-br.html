@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+
+        데스크탑 브라우저에서만 우리의 웹 페이지가 출력될 때는 무시했던 설정인데,
+        다양한 디바이스 등에서 웹 페이지가 나오기 시작하면서 기본값 적용이 문제가 됨.
+        가정해서, 어떤 유저 디바이스의 물리적 사이즈가 380px이었다면 브라우저가 논리적으로 980px로 인지해,
+        우리의 웹페이지를 출력해버리니 우리 콘텐츠가 너무 작게 나오는 문제가 발생.
+        
+        뷰포트를 직접 선언해서, 브라우저에게 가로 사이즈를 어떻게 인지해라라고 명령을 내려야 함.
+        width를 직접 숫자값으로 입력해도 되지만 일반적으로 device-width로 지정하여, 디바이스의 물리적인 사이즈를 그대로 논리적 사이즈로 이용.
+
+     -->
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>Front-End Wep Application 전문가 과정</h1>
+    <h2>Front-End Wep Application 전문가 과정</h2>
+    <h3>Front-End Wep Application 전문가 과정</h3>
+    <h4>Front-End Wep Application 전문가 과정</h4>
+    <h5>Front-End Wep Application 전문가 과정</h5>
+    <h6>Front-End Wep Application 전문가 과정</h6>
+    <hr/>
+    <p>동해물과 백두산이 마르고 닳도록...</p>
+    <p>동해물과 백두산이 마르고 닳도록...</p>
+
+    <p>hello
+        <p>world!</p>
+    </p>
+    <hr/>
+
+    <p>
+        <p>
+            hello
+        </p>
+    </p>
+    <p>world!</p>
+<!-- p태그는 개행 태그가 아님. -->
+    <hr/>
+
+    hello
+    <br/>
+    <br/>
+    <br/>
+    world
+
+
+</body>
+</html>

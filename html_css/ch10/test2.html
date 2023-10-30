@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* id가 test1인 자식들 중 => 태그명이 p => 형제 =>태그명이 div */
+      #test1 > p + div {
+        color: coral;
+      }
+
+      /* p => 형제 => 모든 div */
+      #test2 > p ~ div {
+        color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test1">
+      <h1>test1</h1>
+      <p>one</p>
+      <div>two</div>
+      <div>three</div>
+      <a>four</a>
+      <div>five</div>
+      <p>six</p>
+      <div>seven 럭키</div>
+    </div>
+
+    <div id="test2">
+      <h1>test1</h1>
+      <p>one</p>
+      <div>two</div>
+      <div>three</div>
+      <a>four</a>
+      <div>five</div>
+      <p>six</p>
+      <div>seven 럭키</div>
+    </div>
+  </body>
+</html>
