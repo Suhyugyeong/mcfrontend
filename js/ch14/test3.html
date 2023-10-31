@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //이름 데이터가 여러건 발생했다.. 데이터 하나하나가 따로 유지되어야 한다..
+      //기본은 각 테이터를 각변수에..
+      var user1 = "고길동";
+      var user2 = "둘리";
+      var user3 = "또치";
+
+      //데이터가 여러개 관련있는 데이터고 따로 유지가 되기는 해야 하지만..
+      //순서로 판단해서 사용해도 된다면..
+      //[]는 배열의 표현식..
+      var users = ["고길동", "둘리", "또치"];
+      document.write("users type is " + typeof users + "<br/>"); //object
+      //배열에 저장된 모든 데이터를 한꺼번에 출력..
+      document.write("users: " + users + "<br/>");
+      //우리가 원하는 순서에 위치하는 데이터를 획득하기 위해선..
+      //배열 데이터의 순서는 [0], [1] 등으로 순서를 명시해서..
+      //index로 부른다.. index는 항상 0부터 시작한다!!
+      document.write("첫번째 데이터: " + users[0] + "<br/>");
+      //없는 데이터를 index로 .. 즉 데이터 사이즈 벗어난 index 값을 준다면..
+      document.write("네번째 데이터: " + users[3] + "<br/>"); //undefined
+
+      //배열의 테이터를 배열 변수를 선언하면서 추가할 수도 있지만..
+      //나중에 추가할 수도 있다..
+      users.push("마이콜");
+      //기존에 있던 배열 데이터를 변경하려면..
+      users[0] = "도우너";
+      users[4] = "희동";
+      //배열에 몇개의 데이터가 있는지 판단하고 싶다면..
+      document.write("length: " + users.length + " ,users: " + users);
+    </script>
+  </body>
+</html>

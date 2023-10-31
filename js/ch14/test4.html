@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      document.write("10+4= " + 10 + 4 + "<br/>");
+      document.write("10+4= " + "10" + "4" + "<br/>");
+      document.write("10+4= " + Number(10) + Number(4) + "<br/>");
+      document.write("10+4= " + Number(10 + 4) + "<br/>");
+
+      document.write("10+4= " + (10 + 4) + "<br/>");
+      document.write("10+4= " + (10 - 4) + "<br/>");
+      document.write("10+4= " + 10 * 4 + "<br/>");
+      document.write("10+4= " + 10 / 4 + "<br/>");
+      document.write("10+4= " + (10 % 4) + "<br/>");
+
+      var data = 10;
+      var result = data++;
+      //data : 11 result : 10
+      document.write("data: " + data + " result: " + result + "<br/>");
+      //연산자의 우선순위가 있다.. 후행하는 ++,--가..
+      //전체 연산자중 우선순위가 가장 낮다..
+      //위의 연산이 진행되면 = 이 먼저 실행..
+
+      data = 10;
+      result = data--;
+      //data : 9 result : 10
+      document.write("data: " + data + " result: " + result + "<br/>");
+
+      data = 10;
+      result = data++ + 5;
+      //data : 11 result : 15
+      //data가 +5의 영향을 안 받는 이유는, =는 그저 대입연산자이기 때문에..
+      document.write("data: " + data + " result: " + result + "<br/>");
+
+      data = 10;
+      result = ++data + 5;
+      //data : 11 result : 16
+      document.write("data: " + data + " result: " + result + "<br/>");
+
+      data = 10;
+      //data = data + 10
+      document.write("data : " + (data += 10) + "<br/>");
+      //data = data % 2
+      document.write("data : " + (data %= 2) + "<br/>");
+    </script>
+  </body>
+</html>
