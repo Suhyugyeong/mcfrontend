@@ -21,13 +21,33 @@
   </head>
   <body>
     <script>
+      var i = 1;
+      var j = 1;
+      //이걸 안써주면 아예 계산이 안 되고..
+      //j를 선언하고 값을 1을 이때 주지 않으면 1단 계산이 안 됨..
+      while (i < 10) {
+        document.write("<div>");
+        document.write("<h3>" + i + "단</h3>");
+        while (j < 10) {
+          document.write(i + "x" + j + "=" + i * j + "<br/>");
+          j++;
+          //증감식을 안 써주면 1에서 멈추니까 계속 무한 루프
+          //증감식 써주는 위치가 이해 안됨..
+        }
+        document.write("</div>");
+        i++;
+        j = 1;
+        //이거 안 써주면 1단만 계산됨..
+      }
+
       //   var i = 1;
       //   var j = 1;
-      //   while (i < 10) {
+      //   대입은 반드시 해줘야함! 선언 필수!
+      //   while (i >= 1 && i < 10) {
       //     document.write("<div>");
       //     document.write("<h3>" + i + "단</h3>");
-      //     //곱하는 loop
-      //     while (j < 10) {
+
+      //     while (j >= 1 && j < 10) {
       //       document.write(i + "x" + j + "=" + i * j + "<br/>");
       //       j++;
       //     }
@@ -36,21 +56,17 @@
       //     j = 1;
       //   }
 
-      var i = 1;
-      var j = 1;
+      //   var i = 1;
+      //   var j = 1;
 
-      while (i >= 1 && i < 10) {
-        document.write("<div>");
-        document.write("<h3>" + i + "단</h3>");
-
-        while (j >= 1 && j < 10) {
-          document.write(i + "x" + j + "=" + i * j + "<br/>");
-          j++;
-        }
-        document.write("</div>");
-        i++;
-        j = 1;
-      }
+      //   while (i >= 1 && i < 10) {
+      //     while (j >= 1 && j < 10) {
+      //       document.write(i + "x" + j + "=" + i * j + "<br/>");
+      //       j++;
+      //     }
+      //     i++;
+      //     j = 1;
+      //   }
     </script>
   </body>
 </html>
