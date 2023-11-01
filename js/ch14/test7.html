@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //두개의 숫자를 유저에게 입력받겠다..
+      var no1 = prompt("0 이상의 첫번째 숫자를 입력해 주세요.");
+      var no2 = prompt("0 이상의 두번째 숫자를 입력해 주세요.");
+
+      if (no1 != null) {
+        if (no2 != null) {
+          if (no1 > 0) {
+            if (no2 > 0) {
+              document.write("두 숫자 모두 0 이상의 숫자를 입력하셨습니다.");
+            } else {
+              document.write("잘못된 입력입니다.");
+            }
+          } else {
+            document.write("잘못된 입력입니다.");
+          }
+        } else {
+          document.write("입력이 되지 않았습니다.");
+        }
+      } else {
+        document.write("입력이 되지 않았습니다.");
+      }
+
+      document.write("<hr/>");
+
+      //위의 코드를 아래처럼 작성할 수도 있다..
+      if (no1 !== null && no2 !== null) {
+        if (no1 >= 0 && no2 >= 0) {
+          document.write("두 숫자 모두 0 이상의 숫자를 입력하셨습니다.");
+        } else {
+          document.write("잘못된 입력입니다.");
+        }
+      } else {
+        document.write("입력이 되지 않았습니다.");
+      }
+
+      document.write("<hr/>");
+
+      //위의 코드를 아래처럼 작성할 수도 있다..
+      if (no1 === null || no2 === null) {
+        document.write("입력이 되지 않았습니다.");
+      } else {
+        if (no1 < 0 || no2 < 0) {
+          document.write("잘못된 입력입니다.");
+        } else {
+          document.write("두 숫자 모두 0 이상의 숫자를 입력하셨습니다.");
+        }
+      }
+    </script>
+  </body>
+</html>

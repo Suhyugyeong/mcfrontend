@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //유저에게 나이를 입력받는다.
+      //나이가 어린이인지? 청소년인지? 어른인지를 판단해서.. 개별 작업을 하고 싶다..
+      //모든 조건은 위에서부터 시작한다
+      var age = prompt("나이를 입력하세요.");
+      if (age != null) {
+        if (age < 0 || age > 150) document.write("올바른 숫자를 입력해주세요.");
+        else if (age < 10) document.write("당신은 어린이입니다");
+        else if (age < 20) document.write("당신은 청소년입니다");
+        else document.write("당신은 어른이군요!");
+      } else {
+        document.write("입력을 취소 하셨습니다.");
+      }
+      //특수문자일 경우는....???
+
+      document.write("<hr/>");
+      //숫자가 4배수인지를 판단하고 싶다..
+      var data = 10;
+      var result;
+      if (data % 4 === 0) {
+        result = "4의 배수입니다";
+      } else {
+        result = "4의 배수가 아닙니다";
+      }
+      document.write("result : " + result + "<br/>");
+
+      //위의 if-else를 아래처럼 3항연산자로 작성해도 된다..
+      //if=else 구분, 각 영역이 한줄이고, 그 코드가 실행되어 결과가 나오는 경우에 유용
+      //result에 ? 뒤의 코드 결과가 저장되거나 : 뒤 코드 결과가 저장되거나..
+      result = data % 4 === 0 ? "4의 배수입니다!" : "4의 배수가 아닙니다!!";
+      document.write("result : " + result + "<br/>");
+
+      result = data % 4 === 0 ? data * 2 : data + 2;
+      document.write("result : " + result + "<br/>");
+    </script>
+  </body>
+</html>

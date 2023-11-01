@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var session = prompt(
+        "관심있는 세션을 선택하세요. 1-마케팅, 2-개발, 3-디자인"
+      );
+
+      if (session !== null) {
+        if (session === "1") {
+          document.write("<p>마케팅 세션은 201호 입니다</p>");
+        } else if (session === "2") {
+          document.write("<p>개발 세션은 202호 입니다 </p>");
+        } else if (session === "3") {
+          document.write("<p>디자인 세션은 203호 입니다 </p>");
+        } else {
+          document.write("<p>세션을 잘못 입력하셨습니다.</p>");
+        }
+      }
+
+      document.write("<br/>");
+
+      if (session !== null) {
+        switch (session) {
+          case "1": {
+            document.write("201호");
+          }
+          case "2": {
+            document.write("202호");
+          }
+          case "3": {
+            document.write("203호");
+          }
+          default: {
+            document.write("세션을 잘못 입력하셨습니다.");
+          }
+        }
+      } else {
+        document.write("입력하지 않았습니다. 다시 입력해주세요.");
+      }
+
+      document.write("<br/>");
+
+      if (session !== null) {
+        switch (session) {
+          case "1": {
+            document.write("201호");
+            break;
+          }
+          case "2": {
+            document.write("202호");
+            break;
+          }
+          case "3": {
+            document.write("203호");
+            break;
+          }
+          default: {
+            document.write("세션을 잘못 입력하셨습니다.");
+          }
+        }
+      } else {
+        document.write("입력하지 않았습니다. 다시 입력해주세요.");
+      }
+    </script>
+  </body>
+</html>
