@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //test1
+      //두 곳에서 접근한 변수가 global로 선언된 것.. 모두 동일한 변수를 참조한다..
+      var name = "고길동";
+      function myFun() {
+        name = "둘리";
+        document.write("inner" + name + "<br/>"); //둘리
+      }
+      myFun();
+      //콜해야 사용 가능한거..
+
+      document.write("outer" + name + "<br/>"); //둘리
+
+      //test2
+      //두곳에서 이용한 변수는 다르다.. 하나는 global 하나는 local
+      //var 을 두 번 선언한 것에서 차이
+      //왜 덮어쓰기가 아닌가?? 이름이 동일하게 두 번 선언되었는데 두 변수가 따로 유지되는 이유??
+      //애플리케이션이 실행되면서 이용하는 메모리가 크게 두가지로 구분된다..
+      //힙(Heap) 메모리, 스택(Stack) 메모리로 구분..
+      //global은 heap 메모리, local은 stack에 유지.. 그럼 두 변수명이 동일하더도 따로 유지가 가능하다..
+      //stack은 함수를 실행시키면서 함수가 실행되는 동안만 유지해야 하는 데이터를 담기 위한 메모리..
+
+      //Q1.함수 내에서 변수에 접근을 하면 global, local? 어떤 것을 이용하게 되는가?
+      //=> 당연하게도 자신꺼 우선으로 local을 이용한다..
+      //Q2.global과 local 변수명을 동일하게 선언하는 것이 좋은가?
+      //=>좋다.. 변수명이라는 것은 의미있는 단어를 주는 것이 맞다..
+      //local에서 선언한 변수도 name을 지칭하는 변수라고 하면 굳이 다른 변수명을 줄 필요가 없다..
+
+      var name2 = "또치";
+      function myFun2() {
+        var name2 = "희동이";
+        document.write("inner" + name2 + "<br/>"); //희동이, 재할당이라고 할 수도 없음..
+      }
+      myFun2();
+      document.write("outer" + name2 + "<br/>"); //또치
+
+      //test3
+      //동일 scope 내에서 중복 선언할 경우는 문제가 되지요
+      //js var이 허용하지만 권장하지는 않음..
+      var name3 = "마이콜";
+
+      var name3 = "기영이";
+
+      var name = "하니";
+      //..... 똑같은 변수명으로 다른 걸 지칭하면 문제가 되지요..
+      var name = "민트초코프라푸치노";
+
+      console.log(name);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //test1일반함수
+      function myFun1() {
+        document.write("myFun1() call ... <br/>");
+      }
+      myFun1();
+
+      //test2익명함수
+      //함수 이름이 없다.. 선언과 동시에 호출하던가.. 아니면 변수에 대입해 놓아야 한다.
+      let myFun2 = function () {
+        document.write("myFun2() call... <br/>");
+      };
+      myFun2();
+      //test3 즉시실행함수
+      //함수를 선언하자마자 바로 호출..
+      (function () {})();
+
+      //test4 익명함수가 주로 사용되는 경우..
+      //함수를 선언하는 곳에서는 이용이 안 된다.. => 굳이 이름을 줄 필요가 없다..
+      //다른 함수의 매개변수에 대입되어 사용되는 경우..
+      function myFun4(argFun) {
+        let result = argFun(10, 20);
+        document.write("result : " + result);
+      }
+      myFun4(function (no1, no2) {
+        return no1 + no2;
+      });
+    </script>
+  </body>
+</html>

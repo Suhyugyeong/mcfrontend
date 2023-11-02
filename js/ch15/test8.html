@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #result {
+        width: 500px;
+        height: 300px;
+        margin: 30px auto;
+        border: 2px solid gray;
+        border-radius: 15px;
+      }
+      li {
+        list-style: none;
+      }
+    </style>
+    <script>
+      function changeColor(color) {
+        var result = document.querySelector("#result");
+        result.style.backgroundColor = color;
+      }
+      //Cannot set properties of null (setting 'onclick')
+      //html 이 모두 로딩되지 않은 상태에서 이 코드가 실행된다..
+      //현재 아래 라인이 실행될 때는 #a1 태그가 로딩이 안 된 상태, 즉 없다..
+      //window.onload를 통해 모든 태그의 DOM node 가 만들어진 순간!
+      window.onload = function () {
+        var a1Node = document.querySelector("#a1");
+        a1Node.onclick = function () {
+          changeColor("red");
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#" onclick="let result = 10 + 20; alert(result)">event1</a>
+      </li>
+      <!-- 이 영역은 이벤트를 처리하는 이벤트 핸들러 부분이다.. 즉, js 영역...
+원한다면 이렇게 html 태그 내에 이벤트 처리 알고리즘을 직접 담아도 된다.. 
+간단하게 처리할 수 있지만 html 내에 너무 많은 js코드가 들어가기 때문에 비권장!!-->
+      <li><a href="#" onclick="changeColor('orange')">event2</a></li>
+      <li><a href="#" onclick="changeColor('green')">event3</a></li>
+      <!-- event handler를 js 영역에 별도의 함수로 선언하고,
+    이벤트 발생시에 그 함수를 호출한 것 뿐이다..
+이벤트와 이벤트 발생시에 호출될 handler를 연결해야 하는데.. 
+이 연결을 html 태그에서 onclick 속성으로 직접 한 것이다.. -->
+      <li><a href="#" id="a1">event4</a></li>
+      <!-- 태그와 이벤트 핸들러가 연결되어야 하는데  -->
+    </ul>
+    <div id="result"></div>
+  </body>
+</html>

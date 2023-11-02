@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //화살표 함수..
+      let myFun1 = (no1, no2) => {
+        document.write("myFun1 call..." + no1 + "," + no2 + "<br/>");
+        return no1 + no2;
+      };
+      myFun1(10, 20);
+
+      //매개변수가 없는..
+      let myFun2 = () => {
+        return 10 * 10;
+      };
+      myFun2();
+
+      //매개변수가 1개라면..
+      //() 을 생략할 수도 있다..
+      let myFun3 = (no1) => {
+        return no1 * 10;
+      };
+      myFun3(10);
+
+      //함수의  body 부분이 한줄이고..  그 한줄이 실행된 결과를 그대로 return 하는 함수라면
+      //{} 을 생략해도 된다.. 이를 흔히 single expression function 이라고 부른다..
+      let myFun4 = (no1) => no1 * 10;
+
+      //화살표 함수가 가장 많이 사용되는 경우는...
+      //hof 에서..
+      //high order function...
+      //다른 함수를 매개변수로 받아들이는 함수..
+      //함수를 결과로 리턴하는 함수..
+      function myFun5(argFun) {
+        let result = argFun(10, 20);
+        //..........
+        return () => {
+          document.write("return function....");
+        };
+      }
+      let result = myFun5((no1, no2) => no1 + no2);
+      result();
+    </script>
+  </body>
+</html>

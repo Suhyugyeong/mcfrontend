@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var data1 = 10;
+      var result = data1 + 20;
+      document.write("result" + result + "<br/>"); //30
+
+      //hoisting
+      //아래에 선언된 변수를 위로 인위적으로 올려서 사용은 가능하지만.. 값까지 가져오진 않음..
+      //= 이라는 건 연산자이고, 실행구문이다.. 실행시킨다는 것이 아니라.. 선언 위치만 바꿔주는 것이다.
+      //그럼 초기값은 undefined 이다..
+      result = data2 + 20;
+      document.write("result " + result + "<br/>"); //호이스팅 되면서, NaN
+      var data2 = 20; //아예 없으면 , data is not defined..
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 10;
+      function displayNumber() {
+        console.log("x is " + x);
+        console.log("y is " + y);
+        var y = 20;
+        // y를 아예 안 주면 error!! in not difined..
+        //근데 y 값을 아래에 주면 호이스팅은 되면서 y 값은 undifined.. 오류는 안 뜸..
+      }
+      displayNumber();
+    </script>
+  </body>
+</html>

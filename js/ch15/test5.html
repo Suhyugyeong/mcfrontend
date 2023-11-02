@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //test1
+      //var scope ... 함수 스코프는 지원한다..
+      //블록(if, for 등) 스코프를 지원하지 않는다..
+      //   var name = "고길동";
+      //   function myFun() {
+      //     var name = "홍길동";
+      //     document.write("inner fun, top : " + name + "<br/>"); //홍길동
+      //     if (true) {
+      //       var name = "이길동";
+      //       document.write("inner fun, if : " + name + "<br/>"); //이길동
+      //     }
+      //     document.write("inner fun, middle : " + name + "<br/>"); //이길동 , 홍길동이 되여야..
+      //     for (var i = 1; i <= 1; i++) {
+      //       var name = "박길동";
+      //       document.write("inner fun, for : " + name + "<br/>"); //박길동
+      //     }
+      //     document.write("inner fun, bottom : " + name + "<br/>"); //박길동 , 홍길동이 되여야..
+      // }
+      //   myFun();
+      //   document.write("outer fun : " + name + "<br/>"); //고길동
+
+      //test2
+      let name = "고길동";
+      function myFun() {
+        let name = "홍길동";
+        document.write("inner fun, top : " + name + "<br/>"); //홍길동
+        if (true) {
+          let name = "이길동";
+          document.write("inner fun, if : " + name + "<br/>"); //이길동
+        }
+        document.write("inner fun, middle : " + name + "<br/>"); //홍길동
+        for (let i = 1; i <= 1; i++) {
+          let name = "박길동";
+          document.write("inner fun, for : " + name + "<br/>"); //박길동
+        }
+        document.write("inner fun, bottom : " + name + "<br/>"); //홍길동
+      }
+      myFun();
+      document.write("outer fun : " + name + "<br/>"); //고길동
+
+      //동일 스코프 내에서 재선언 불가..
+      //   let name = "차은우"
+      //   document.write(data);
+      //   let data = 10;
+      //위를 보니, 호이스팅 지원 안 하는거 알겠죠
+    </script>
+  </body>
+</html>

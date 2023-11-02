@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      var no = prompt("2 이상의 숫자를 입력하세요");
+
+      //어떤 수가(10).. 소수인지를 판단.. 2부터 증가시셔서 나누어 봐야.. ==> loop
+      //2부터.. 입력받은 수까지.. 증가시키면서 소수인지를 판단.. ==>loop
+
+      var message = "";
+      if (no !== null) {
+        if (no > 1) {
+          //결과가 여러건 나온다..갯수는 고정되지 않는다. 한꺼번에 출력하면 된다..
+          //==>배열 이용하자.. 소수로 판단되는 숫자를 배열에 담았다가 한꺼번에 출력하자.
+          var result = []; //초기는 빈 상태..
+
+          //숫자를 증가시켜서...
+          for (var i = 2; i < no; i++) {
+            //소수인지에 따라 true, false
+            var isPrimeNumber = true;
+
+            //소수인지를 판단하는 알고리즘..
+            //2부터 숫자를 증가시켜서.. 나누어 본다..
+            var divisor = 2;
+            //증가시켜서..
+            while (divisor < i) {
+              //나눠서.. 나머지 값이 0인지.. 아닌지..
+              if (i % divisor === 0) {
+                isPrimeNumber = false;
+                break;
+              } else {
+                divisor++;
+              }
+            }
+
+            //isPrimeNumber 에 true/false 입력되어 있다..
+            if (isPrimeNumber) {
+              result.push(i);
+            }
+          }
+          document.write(result);
+        } else {
+          message = "2 이상의 숫자를 입력해야해..";
+        }
+      } else {
+        message = "입력하지 않았어..";
+      }
+      document.write(message);
+    </script>
+  </body>
+</html>
