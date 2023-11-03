@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //test1 배열 객체.. 초기값이 있는 경우..
+      var array = ["봄", "여름", "가을", "겨울"];
+      //배열의 데이터 접근은 순서(index)로 이용된다.. index는 0부터이다..
+      for (var i = 0; i < array.length; i++) {
+        document.write("<p>" + array[i] + "</p>");
+        //그냥 i로 하면 0,1,2,3
+        //array하면 [봄,여름,가을,겨울] * 4번 찍힘
+      }
+
+      document.write("<hr/>");
+
+      //test2 배열객체 선언시에.. 데이터가 없다면..
+      var array1 = [];
+      //배열에 데이터 추가..
+      array1.push("고구려");
+      array1.push("신라");
+      array1.push("백제");
+      document.write("<p>" + array1[0] + "</p>");
+      document.write("<hr/>");
+      //배열의 데이터를 순서대로 모두 획득해서 사용해야 한다면..
+      //위의 코드처럼 length를 조건으로 for문을 작성해도 되지만..
+      //배열은 객체이다.. 순서대로 뽑아주는 함수가 있지 않겠나???
+      //forEach의 매개변수에 개발자 함수 전달.. 배열에서 이용
+      //forEach에서 배열의 개수만큼 우리가 전달할 함수를 호출해준다..
+      //호출하면서 배열 데이터를 순차적으로 전달 (element에 )
+      array1.forEach((element) => document.write("<p>" + element + "</p>"));
+      document.write("<p>" + typeof array1 + "</p>");
+      //typeof -타입 획득 결과: object 즉, 객체다.. array1은 객체다(number, string, boolean도 아니다..)
+      //instanceof - true/false - 왼쪽 객체가 오른쪽 클래스로 만든것이냐?? :true
+      document.write("<p>" + (array1 instanceof Array) + "</p>");
+      document.write("<hr/>");
+
+      //test3
+      //Array 클래스(모형)으로 배열 객체를 선언 .. 이게 정식 방법
+      var array2 = new Array();
+      array2.push("차은우");
+      array2.push("김석우");
+      array2.push("공지철");
+      array2.forEach((element) => document.write("<p>" + element + "</p>"));
+      document.write("<p>" + typeof array2 + "</p>"); //object
+      document.write("<p>" + (array2 instanceof Array) + "</p>"); //true
+      document.write("<hr/>");
+    </script>
+  </body>
+</html>

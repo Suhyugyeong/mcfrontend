@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function myOpen1() {
+        //js 에서 브라우저의 새 창을 띄워서 특정 사이트가 나오게 한다..
+        //a 태그의 target 으로도 가능한거 아닌가???????
+        //<a href='~~~' target='_blank'
+        //js 에서 새창을 띄운다는 것은 처리할 로직이 있다는 것이다..
+        //무언가 판단해서 조건에 만족하면 새창 띄우고 아니면 안띄우고...
+        //띄운다고 하더라도.. js 로 특별한 데이터를 발생시켜서.. 새창의 html 에게 그 데이터
+        //전달할 수도 있는거고..
+        window.open("https://www.google.com");
+      }
+      function myOpen2() {
+        window.open("https://www.google.com", "_self");
+      }
+      let childWindow;
+      function myOpen3() {
+        childWindow = window.open(
+          "https://www.google.com",
+          "_blank",
+          "toolbar=no,scrollbars=no,resizable=no,top=500,width=400,height=400"
+        );
+        if (childWindow == null) {
+          alert("팝업이 차단되어 있습니다. 해제해 주세요");
+        }
+      }
+      function myOpen4() {
+        childWindow.close();
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="myOpen1()">move to new window</button><br />
+    <button onclick="myOpen2()">move to self window</button><br />
+    <button onclick="myOpen3()">move to option window</button><br />
+    <button onclick="myOpen4()">close</button><br />
+  </body>
+</html>

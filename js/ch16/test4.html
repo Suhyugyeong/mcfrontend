@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //난수(random 숫자) 추출...
+      //0부터 1사이의 소수값으로 발생..
+      document.write("<p>" + Math.random() + "</p>");
+
+      //0~100 정수값의 난수를 원한다..
+      //random()에 원하는 숫자 최대값을 곱한다..
+      let random1 = Math.random() * 100;
+      random1 = Math.floor(random1);
+      document.write("<p>" + random1 + "</p>");
+
+      //0부터가 아니라 특정 중간 숫자들 사이의 난수..
+      let max = 70;
+      let min = 51;
+      random2 = Math.random() * (max - min) + min;
+      document.write("<p>" + random2 + "</p>");
+    </script>
+  </body>
+</html>

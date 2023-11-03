@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>event popup</h1>
+    <!-- a 태그로 처리했다.. a 태그는 원래 새로운 페이지를 여는 태그다.. 하지말라고..
+  return false
+  함수를 호출하면서 매개변수로 자신의 href 속성값을 전달한다..\
+  a 태그내에 쓰여져 있는 구문이다.. 이곳에서 this 는 a 태그를 지칭한다. -->
+    <a href="test9-event-detail.html" onclick="loadURL(this.href);return false;"
+      >이벤트 상세보기</a
+    >
+
+    <script>
+      function loadURL(url) {
+        //새로운 url 로 이동하는데.. 현재의 popup 창이 아니라.. 부모창이..
+        window.opener.location = url;
+        //자신은 닫는다..
+        window.close();
+      }
+    </script>
+  </body>
+</html>

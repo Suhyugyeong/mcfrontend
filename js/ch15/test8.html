@@ -17,6 +17,8 @@
       }
     </style>
     <script>
+      //아래의 DOM node접근도 #result가 로딩되지 않은 상태에서 접근한다면.. 분명.. null, 에러다.
+      //html에서 이벤트를 걸었다.. 유저가 클릭했다는 것은 이미 로딩이 완료되었다는 이야기다..
       function changeColor(color) {
         var result = document.querySelector("#result");
         result.style.backgroundColor = color;

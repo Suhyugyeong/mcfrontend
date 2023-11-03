@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //현재시간, 날짜..
+      var date1 = new Date();
+      document.write("<p>" + date1 + "</p>");
+      document.write("<p>" + date1.toLocaleString() + "</p>");
+      document.write("<hr/>");
+      //특정 날짜, 시간을 지정해서 객체 생성..
+      var date2 = new Date("2023-10-11T06:00:01");
+      document.write("<p>" + date2.toLocaleString() + "</p>");
+      var date3 = new Date("2023/11/29");
+      document.write("<p>" + date3.toLocaleString() + "</p>");
+      document.write("<hr/>");
+
+      //년도, 월, 일 등.. 각 데이터를 별개로 지정 가능..
+      //주의할 점이 있음!!
+      //월을 개별데이터로 핸들링할 때는 꼭 -1을 해줘야 한다!!
+
+      var date4 = new Date(2023, 11, 3, 17, 3, 24, 0);
+      document.write("<p>" + date4.toLocaleString() + "</p>");
+      document.write("<hr/>");
+
+      //두 날짜, 시간이 있다.. 어느게 빠른지... 느린지..
+      //예를 들어, 이벤트 시간 안에 하느냐 마느냐
+      if (date1 > date2) {
+        document.write("<p> date1 is greater than date2</p>");
+      }
+
+      //두 날짜의 차이를 계산..
+      //날짜 시간은 1970년1월1일부터의 지난 시간에 대한 밀리세컨즈(이걸 흔히 timestamp값)를 유지해서 계산, 표현..
+      //각 date가 가진 timestamp 값을 획득해서 계산한다..
+      var date1Time = date1.getTime();
+      var date2Time = date2.getTime();
+      var passedTime = date1Time - date2Time;
+      var result = Math.round(passedTime / (1000 * 60 * 60 * 24)); //초, 분, 시간, 일 단위로
+      document.write("<p>" + result + "</p>");
+    </script>
+  </body>
+</html>

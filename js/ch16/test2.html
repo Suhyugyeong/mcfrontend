@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //test1.. splice
+      //insert.. 배열의 중간에 하나 추가..
+      var array1 = ["망고", "귤", "파인애플"];
+      array1.splice(1, 0, "딸기"); //1 index 위치에 새로운 데이터 추가..
+      //망고, 딸기, 귤, 파인애플
+      document.write("<p>" + array1 + "</p>");
+
+      //insert 중간에 여러개를 추가
+      array1.splice(2, 0, "복숭아", "사과", "석류");
+      document.write("<p>" + array1 + "</p>");
+
+      //update.. 기존 데이터를 수정하기 위해서도 쓰인다..
+      //하나만 수정할 수도 있고, 여러개를 한꺼번에 수정할 수도 있다..
+      array1.splice(2, 1, "산딸기");
+      document.write("<p>" + array1 + "</p>");
+      //여러개를 한꺼번에 수정.. 수정 대상과 수정되는 값의 개수가 맞지 않아도 된다..
+      array1.splice(2, 3, "수박");
+      document.write("<p>" + array1 + "</p>");
+
+      //delete .. 위치만 지정하고 데이터 주지 않으면 삭제다..
+      //그래서 중간껄 핸들링할 때는 splice를 쓴다.. 주로..
+      array1.splice(2, 2);
+      document.write("<p>" + array1 + "</p>");
+
+      document.write("<hr/>");
+
+      //test2 .. slice
+      //중간의 특정 위치를 지정해서 획득.. 원배열에는 영향이 없다.. 추출만..
+      //1 index부터 끝까지
+      var result1 = array1.slice(1);
+      document.write("<p>" + array1 + " ///추출 :" + result1 + "</p>");
+      //특정 위치
+      result1 = array1.slice(0, 2);
+      document.write("<p>" + array1 + " ///추출 :" + result1 + "</p>");
+      document.write("<hr/>");
+
+      //test4 .. every .. 함수로 조건을 주고, 그 조건에 모든 배열데이터가 만족하는지 판단..
+      var array2 = [23, 30, 25, 40, 9];
+      //모든 데이터가 20 이상인지를 판단하고 싶다..
+      //매개변수에 함수를 지정, 데이터 개수만큼 그 함수 호출..
+      //함수의 리턴값은 true, false이어야 한다..
+      //모든 호출시에 함수에서 true가 리턴된다면 전테 true
+      //한번이라도 false가 리턴된다면 전체 false..
+      //주로 특정 지역, 특정 성별 뽑아낼때..
+      var result2 = array2.every((element) => element > 20);
+      document.write("<p>" + result2 + "</p>"); //false
+      document.write("<hr/>");
+
+      //test4.. filter... 전체 배열 데이터 중 조건에 만족하는 데이터만 추출하기
+      //조건을 함수로 만들어서.. 그 함수에서 true가 리턴되는 데이터만 알아서 추출해준다..
+      //나이가 19세 이상인 사람 뽑을 때 .. 등 되게 자주써요!!!
+      var array3 = ["korea", "sweden", "finland", "america", "uk", "norway"];
+      var result3 = array3.filter((word) => word.length > 6);
+      document.write("<p>" + result3 + "</p>");
+      document.write("<hr/>");
+
+      //test5 ..map.. 배열 데이터가 5개면 결과도 5개를 반환한다..
+      //forEach, filter, map 이 기본이다!!
+      //개발자 함수를 거쳐서 나온 결과를 모아서 반환..
+      //각자 연봉에 특별상여금(20%)를 구할 때 등...
+      var array4 = [1, 4, 9, 15];
+      var result4 = array4.map((x) => x * 2);
+      document.write("<p>" + result4 + "</p>");
+
+      //이 외에도 교재에서 소개하지 않은 정말 많은 함수들이 제공된다..
+    </script>
+  </body>
+</html>
