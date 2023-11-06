@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .pass {
+        color: green;
+      }
+      .fail {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     국어 : <input type="number" id="ko" />
@@ -22,7 +30,7 @@
       let en = document.querySelector("#en").value;
       let ma = document.querySelector("#ma").value;
 
-      if (ko > 60 && ko !== null) {
+      if (ko > 60) {
         document.getElementById("koscore").innerText = "pass";
       } else if ((document.getElementById("koscore").innerText = "fail"))
         if (en > 60) {
@@ -31,27 +39,25 @@
       if (ma > 60) {
         document.getElementById("mascore").innerText = "pass";
       } else document.getElementById("mascore").innerText = "fail";
+
       let average = (parseInt(ko) + parseInt(en) + parseInt(ma)) / 3;
       document.getElementById("average").innerText =
-        "당신의 평균은 " + average + "점 입니다.";
+        "당신의 평균은" + average + "점 입니다.";
 
-      let grade = Number.average.value;
-
-      switch (grade) {
-        case grade > 90:
+      switch (average) {
+        case average > 90:
+          //switch 문의 case는 상수값을 사용하고, 비교연산자를 사용할 수 없다..
           document.getElementById("grade").innerText = "당신은 A등급입니다";
           break;
-        case grade > 80:
+        case average > 80:
           document.getElementById("grade").innerText = "당신은 b등급입니다.";
           break;
-        case grade > 70:
+        case average > 70:
           document.getElementById("grade").innerText = "당신은 c등급입니다.";
           break;
           defult;
           document.getElementById("grade").innerText = "당신은 fail 입니다.";
       }
     }
-
-    document.getElementById("grade").appendChild();
   </script>
 </html>

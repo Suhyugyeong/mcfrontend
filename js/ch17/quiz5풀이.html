@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* css 를 아래처럼 선언하지 않고.. js 에서 동적으로 css 를 조정할 수동 있지만..
+    동시에 지정해야 하는 css 속성이 좀 많다면 아예 css class 로 선언하고..
+    js 에서는 css class 명만 지정하게 하는게 편할 수도.. */
+      .pass {
+        color: green;
+      }
+
+      .fail {
+        color: red;
+      }
+    </style>
+    <script>
+      //3개 과목의 점수를 판단해서.. 60점 미만과.. 이상의 처리코드..
+      //코드가 중복되네..
+      //그 역할을 하는 함수를 하나 만들어서 처리하자..
+      function writePassOrFail(node, score) {
+        if (score >= 60) {
+          node.innerHTML = '<div class="pass">Pass</div>';
+        } else {
+          node.innerHTML = '<div class="fail">Fail</div>';
+        }
+      }
+
+      //dom node 접근은 html 로딩이 완료된다음에 해야지...
+      window.onload = function () {
+        //버튼이 클릭되었을때... 이벤트..
+        document
+          .getElementById("button")
+          .addEventListener("click", function () {
+            //유저입력 데이터 획득..
+            let kor = parseInt(document.getElementById("kor").value);
+            let math = parseInt(document.getElementById("math").value);
+            let eng = parseInt(document.getElementById("eng").value);
+
+            let korResult = document.getElementById("korResult");
+            let mathResult = document.getElementById("mathResult");
+            let engResult = document.getElementById("engResult");
+
+            writePassOrFail(korResult, kor);
+            writePassOrFail(mathResult, math);
+            writePassOrFail(engResult, eng);
+
+            let result = document.getElementById("result");
+
+            //평균을 계산..
+            //국어+수학+영어 / 3
+            let sum = kor + math + eng;
+            let avg = sum / 3;
+
+            let grade;
+            switch (Math.floor(avg / 10)) {
+              case 10:
+              case 9:
+                grade = "A";
+                break;
+              case 8:
+                grade = "B";
+                break;
+              case 7:
+                grade = "C";
+                break;
+              case 6:
+                grade = "D";
+                break;
+              default:
+                grade = "F";
+                break;
+            }
+            result.innerHTML = "당신의 학점은 " + grade + "입니다.";
+          });
+      };
+    </script>
+  </head>
+
+  <body>
+    국어 : <input type="text" id="kor" /><br />
+    <div id="korResult"></div>
+    수학 : <input type="text" id="math" /><br />
+    <div id="mathResult"></div>
+    영어 : <input type="text" id="eng" /><br />
+    <div id="engResult"></div>
+    <button id="button">등록</button>
+    <div id="result"></div>
+  </body>
+</html>
