@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    국어 : <input type="number" id="ko" />
+    <div id="koscore"></div>
+    영어 : <input type="number" id="en" />
+    <div id="enscore"></div>
+    수학 : <input type="number" id="ma" />
+    <div id="mascore"></div>
+    <button onclick="result()">등록</button>
+    <div id="average"></div>
+  </body>
+  <script>
+    function result() {
+      let ko = document.getElementById("ko").value;
+      let en = document.querySelector("#en").value;
+      let ma = document.querySelector("#ma").value;
+
+      if (ko > 60 && ko !== null) {
+        document.getElementById("koscore").innerText = "pass";
+      } else if ((document.getElementById("koscore").innerText = "fail"))
+        if (en > 60) {
+          document.getElementById("enscore").innerText = "pass";
+        } else document.getElementById("enscore").innerText = "fail";
+      if (ma > 60) {
+        document.getElementById("mascore").innerText = "pass";
+      } else document.getElementById("mascore").innerText = "fail";
+      let average = (parseInt(ko) + parseInt(en) + parseInt(ma)) / 3;
+      document.getElementById("average").innerText =
+        "당신의 평균은 " + average + "점 입니다.";
+    }
+  </script>
+</html>

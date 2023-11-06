@@ -3,43 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>사칙연산 계산기</title>
   </head>
+  <!-- good.............................. -->
   <body>
-    <input type="number" id="number1" />
-    <select id="selectNode">
-      <option class="p">+</option>
-      <option class="m">-</option>
-      <option class="mm">*</option>
-      <option class="d">/</option>
+    <input type="number" id="num1" />
+    <select id="select">
+      <!-- select의 id로 option값 가져올거임 -->
+      <option>+</option>
+      <option>-</option>
+      <option>*</option>
+      <option>/</option>
     </select>
-
-    <input type="number" id="number2" />
-    <button type="submit">계산</button>
+    <input type="number" id="num2" />
+    <button type="button" id="btnCalc">계산</button>
+    <!-- id로 뽑아내야되니까.. -->
+    <div id="result"></div>
+    <!-- 결과값을 붙여줄 공간이 필요.. -->
 
     <script>
-      let no1 = parseInt(document.getElementById("number1").value);
-      let no2 = parseInt(document.getElementById("number2").value);
-      let p = document.getElementsByClassName("p");
-      let m = document.getElementsByClassName("m");
-      let mm = document.getElementsByClassName("mm");
-      let d = document.getElementsByClassName("d");
-      let selectValue;
-      //   selectNode.options[selectNode.selectedindex].value;
+      let btnCalc = document.getElementById("btnCalc");
+      btnCalc.addEventListener("click", calculation);
+      //계산 버튼 눌렀을 때 이벤트 발생 => click 했을 때 calculation 함수 발생
 
-      if (selectValue == p) {
-        let result = no1 + no2;
-        document.write(result);
-      } else if (selectValue == m) {
-        let retult2 = no1 - no2;
-        document.write(result2);
-      } else if (selectValue == mm) {
-        let result3 = no1 * no3;
-        document.write(result3);
-      } else if (selectValue == d) {
-        let result4 = no1 / no2;
-        document.write(result4);
-      } else document.write("숫자를 잘못 입력하셨습니다.");
+      function calculation() {
+        let num1 = parseInt(document.getElementById("num1").value);
+        let num2 = parseInt(document.getElementById("num2").value);
+
+        let selectNode = document.getElementById("select");
+        let selectValue = selectNode.options[selectNode.selectedIndex].value;
+        //이게 select의 옵션값을 가져오는 식(나는 모름...)
+        //opsions/selectedIndex/value는 내장..
+        //+, -, *, / 인지 뽑아오는거
+
+        switch (selectValue) {
+          case "+":
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            result = num1 / num2;
+            break;
+        }
+        document.getElementById("result").innerText = result;
+      }
     </script>
   </body>
 </html>
