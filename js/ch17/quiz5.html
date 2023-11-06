@@ -14,6 +14,7 @@
     <div id="mascore"></div>
     <button onclick="result()">등록</button>
     <div id="average"></div>
+    <div id="grade"></div>
   </body>
   <script>
     function result() {
@@ -33,6 +34,24 @@
       let average = (parseInt(ko) + parseInt(en) + parseInt(ma)) / 3;
       document.getElementById("average").innerText =
         "당신의 평균은 " + average + "점 입니다.";
+
+      let grade = Number.average.value;
+
+      switch (grade) {
+        case grade > 90:
+          document.getElementById("grade").innerText = "당신은 A등급입니다";
+          break;
+        case grade > 80:
+          document.getElementById("grade").innerText = "당신은 b등급입니다.";
+          break;
+        case grade > 70:
+          document.getElementById("grade").innerText = "당신은 c등급입니다.";
+          break;
+          defult;
+          document.getElementById("grade").innerText = "당신은 fail 입니다.";
+      }
     }
+
+    document.getElementById("grade").appendChild();
   </script>
 </html>
