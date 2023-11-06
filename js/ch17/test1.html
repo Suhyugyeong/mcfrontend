@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="a1">hello</div>
+    <div class="b1">world</div>
+    <div class="b1">hello world</div>
+
+    <input type="text" name="id" value="kim" /><br />
+    <input type="text" name="pw" value="1234" /><br />
+
+    <a>google</a><br />
+    <a>naver</a><br />
+
+    <h3>result</h3>
+    <script>
+      //id 로 node 획득.. 그 태그의 문자열 획득..
+      //innerText.. node body 문자열..
+      let div1 = document.getElementById("a1");
+      document.write("<p>" + div1.innerText + "</p>");
+
+      //css class 로 node 획득..
+      //css class 가 식별을 목적으로 하지 않음으로.. 여러건이 획득될 수 있다..
+      //결과는 항상 배열이다..
+      let div2 = document.getElementsByClassName("b1");
+      document.write("<p>" + div2[1].innerText + "</p>");
+
+      //tag name 으로 node 획득..
+      //배열로.. 결과는..
+      let a = document.getElementsByTagName("a");
+      document.write("<p>" + a[0].innerText + "</p>");
+
+      //tag 중에 name attribute 값으로 node 획득 가능..
+      //name attribute 는 모든 태그에 추가가 가능하지만.. 일반적으로..
+      //form 하위에 있는 input 태그들에 추가되는 속성이다..
+      //서버에 데이터 넘길때 식별자가 name 속성이어서..
+      //<input type='text' id='a1' name='a2'/>
+      //js 에서는 위 태그에 입력한 값을 획득할 때, id 속성과 name 속성을 모두 이용할 수
+      //있지만..
+      //서버에 넘어갈때는 id 는 사용이 안되고.. name 만 사용되어..
+      //a2=kim 형태로 넘어가게 된다..
+      let idInput = document.getElementsByName("id");
+      //tag name 획득
+      document.write("<p>" + idInput[0].tagName + "</p>");
+      //유저가 입력한 값 획득..
+      document.write("<p>" + idInput[0].value + "</p>");
+
+      //css selector 를 그대로 이용해서.. node 획득.. .....................
+      //querySelector 에 의해 여러개의 node 가 걸리다고 하더라도 가장 처음 하나만 반환
+      let dom1 = document.querySelector("a");
+      document.write("<p>" + dom1.innerText + "</p>");
+
+      //여러개를 css selector 로 획득하겠다면..
+      let dom2 = document.querySelectorAll("a");
+      dom2.forEach((node) => document.write("<p>" + node.innerText + "</p>"));
+    </script>
+  </body>
+</html>

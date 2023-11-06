@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      var child_value = "자식의 데이터입니다";
+      var child_value = "자식의 데이터..";
       function call_parent() {
-        //부모창에 자식의 데이터값 전달..
+        //부모창에 자식의 데이터 값 전달..
         opener.parent_value = "world";
         opener.parent_function();
       }
       function child_function() {
-        //부모가 호출할 함수
+        //부모가 호출할 함수..
         alert(child_value);
       }
 
       opener.popup = this;
+
       function read_parent() {
-        //부모창에 input 태그에 유저가 입력한 글을 획득하자..
-        var value = opener.document.getElementbyId("search").value;
+        //부모창에 input 태그에 유저가 입력한 글좀 획득하자..
+        var value = opener.document.getElementById("search").value;
         alert("부모에 입력된 데이터는 : " + value);
       }
     </script>

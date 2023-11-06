@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/nodelist.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>할일 목록</h1>
+      <p>공부해야 할 주제를 기록해주세요.</p>
+      <input type="text" id="subject" autofocus />
+      <button onclick="register()">추가하기</button>
+      <hr />
+      <ul id="itemList"></ul>
+    </div>
+    <script>
+      function register() {
+        let subject = document.querySelector("#subject");
+        //동적으로 node 만들어서..
+        let newItem = document.createElement("li");
+        let newText = document.createTextNode(subject.value);
+
+        newItem.appendChild(newText);
+
+        let list = document.querySelector("#itemList");
+        list.appendChild(newItem);
+        //유저 입력 문자열 지운다..
+        subject.value = "";
+      }
+    </script>
+  </body>
+</html>

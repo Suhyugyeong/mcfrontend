@@ -6,25 +6,24 @@
     <title>Document</title>
     <script>
       function popup() {
-        //이벤트 요약 내용을 보여주는 html이 있고 이 html을 새로운 윈도우 창에서 띄운다..
-        popWindow = window.open(
-          "test9_popup.html",
+        //이벤트 요약 내용을 보여주는 html 이 있고.. 이 html 을 새로운 윈도우 창에서 띄운다
+        popWin = window.open(
+          "test9-popup.html",
           "popup",
-          "width=750, height=600"
+          "width=750,height=600"
         );
-        popWindow.opener = self; //이 윈도우를 띄운 부모가 누구냐를 명시하기 위해..
+        popWin.opener = self; //이 윈도우를 띄운 부모가 누구다를 명시..
       }
 
       function childPopup() {
-        //새로운 popup 창 듸우기..
-        window.open("test9_child.html", "child_popup", "width=750,height=600");
+        //새로운 popup 창 띄우기..
+        window.open("test9-child.html", "child_popup", "width=750, height=600");
       }
       function call_child() {
-        //부모 => 자식 함수 호출..
+        //부모 -> 자식의 함수 호출..
         popup.child_value = "hello";
         popup.child_function();
       }
-
       function parent_function() {
         //자식에서 호출하는 함수..
         alert(parent_value);
@@ -32,12 +31,16 @@
     </script>
   </head>
   <body>
-    <button onclick="popup()">event popup 띄우기</button>
-    <!-- 부모창과 자식창이 상호데이터 주고받기.. -->
-    <button onclick="childPopup()">child popup 띄우기</button>
-    <input type="button" value="child funtion call" onclick="call_child()" />
-    <br />
-    <!-- 유저가 글을 입력한다.. 부모창에서.. 이 입력된 글이 필요한 곳은 child이다. -->
+    <button onclick="popup()">event popup 띄우기</button><br />
+
+    <!-- 부모창과 자식창이.. 상호 데이터 주고받기..  -->
+    <button onclick="childPopup()">child popup 띄우기</button><br />
+    <input
+      type="button"
+      value="child function call"
+      onclick="call_child()"
+    /><br />
+    <!-- 유저가 글을 입력한다.. 부모창에서.. 이 입력된 글이 필요한 곳은 child 이다. -->
     <input type="text" name="search" id="search" />
   </body>
 </html>

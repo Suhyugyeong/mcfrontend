@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/lightbox.css" />
+  </head>
+  <body>
+    <!-- 이미 썸네일이 출력 -->
+    <div class="row">
+      <ul>
+        <!-- data-src는 화면과 상관없이 개발자가 심어놓은 것 -->
+        <li>
+          <img
+            src="images/tree-1-thumb.jpg"
+            data-src="images/tree-1.jpg"
+            class="pic"
+          />
+        </li>
+        <li>
+          <img
+            src="images/tree-2-thumb.jpg"
+            data-src="images/tree-2.jpg"
+            class="pic"
+          />
+        </li>
+        <li>
+          <img
+            src="images/tree-3-thumb.jpg"
+            data-src="images/tree-3.jpg"
+            class="pic"
+          />
+        </li>
+        <li>
+          <img
+            src="images/tree-4-thumb.jpg"
+            data-src="images/tree-4.jpg"
+            class="pic"
+          />
+        </li>
+        <li>
+          <img
+            src="images/tree-5-thumb.jpg"
+            data-src="images/tree-5.jpg"
+            class="pic"
+          />
+        </li>
+        <li>
+          <img
+            src="images/tree-6-thumb.jpg"
+            data-src="images/tree-6.jpg"
+            class="pic"
+          />
+        </li>
+      </ul>
+    </div>
+    <!-- 이미지 섬네일이 클릭되었을 때 큰 이미지가 출력되는 부분..
+    css 기법으로 초기에는 화면에 안 나오게 처리했다... -->
+    <div id="lightbox">
+      <img src="images/tree-1.jpg" id="lightboxImage" />
+    </div>
+    <script>
+      let pics = document.getElementsByClassName("pic");
+      let Lightbox = document.getElementById("Lightbox");
+      let lightboxImage = document.getElementById("lightboxImage");
+
+      for (i = 0; i < pics.length; i++) {
+        pics[i].addEventListener("click", showLightBox);
+      }
+      function showLightBox() {
+        //썸네일 태그의 속성 중 큰 이미지 정보 속성값 획득..
+        let bigImage = this.getAttribute("data-src");
+        lightboxImage.setAttribute("src", bigImage);
+        lightbox.style.display = "block";
+      }
+      lightbox.onclick = function () {
+        lightbox.style.display = "none";
+      };
+    </script>
+  </body>
+</html>

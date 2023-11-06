@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/product.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h3>상품</h3>
+      <div id="prod-pic">
+        <img src="images/coffee-blue.jpg" id="cup" width="200" height="200" />
+        <div id="small-pic">
+          <img src="images/coffee-blue.jpg" class="small" />
+          <img src="images/coffee-gray.jpg" class="small" />
+          <img src="images/coffee-pink.jpg" class="small" />
+        </div>
+      </div>
+    </div>
+    <script>
+      //위, 아래 이미지 node 객체 획득..
+      var cup = document.querySelector("#cup");
+      var smallCup = document.querySelectorAll(".small");
+      //small 이미지 여러개이다.. 모두 click 이벤트 걸어야 한다..
+      for (let i = 0; i < smallCup.length; i++) {
+        smallCup[i].addEventListener("click", changePic);
+      }
+      function changePic() {
+        //현재 이벤트가 발생한 node의 src값을 얻어내서..
+        let newSrc = this.src; //this - 현재 이벤트가 발생한 node
+        cup.setAttribute("src", newSrc);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>기본 출력 요소</h3>
+    <div id="a1">안녕하세요</div>
+    <div id="a2"><a href="#">google로 가요</a></div>
+    <div id="a3">
+        안녕하세요
+    <a href="#">구글로!</a>
+    적당히 바람이 시원해 기분이 너무 좋아요~!
+    </div>
+    </div>
+
+    <div id="result1"></div>
+    <div id="result2"></div>
+    <!-- js에서 이용해서 동적인 데이터를 뽑아내기 위해서 html에서 div 태그를 준비해놓은거.. -->
+
+    <hr />
+    <script>
+      //node 획득..
+      let dom1 = document.getElementById("a1");
+      document.write("<p>" + dom1.innerText + "</p>");
+      document.write("<p>" + dom1.innerHTML + "</p>");
+
+      let dom2 = document.getElementById("a2");
+      document.write("<p>" + dom2.innerText + "</p>");
+      document.write("<p>" + dom2.innerHTML + "</p>");
+
+      let dom3 = document.getElementById("a3");
+      document.write("<p>" + dom3.innerText + "</p>");
+      document.write("<p>" + dom3.innerHTML + "</p>");
+
+      //js에서 발생한 데이터를 특정 node에 출력
+      let dom4 = document.getElementById("result1")
+      //태그가 들어가도 단순 문자열로 인지되어 태그까지 화면에 나옴..
+      dom4.innerText = "<a href=#>naver로~!gogogo!!</a>"
+
+      let dom5 = document.getElementById("result2")
+      dom5.innerHTML = "<a href=#>naver로~!gogogo!!</a>"
+
+      //일반적으로는.. innerHTML을 이용하고..
+      //태그가 문자열로 그대로 유저 화면에 나와야 하는 경우에만 innerText 사용..
+      
+    </script>
+  </body>
+</html>
