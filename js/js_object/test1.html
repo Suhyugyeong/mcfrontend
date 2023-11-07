@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //모형class 없이.. 관련된 변수, 함수를 묶기 위해서 객체선언..
+      //방법1. Object 이용.. 빈 상태의 객체 선언 후 추가..
+      let user1 = new Object();
+      user1.name = "kim";
+      user1.age = 18;
+      user1.job = "dreamer";
+      //kim 18 dreamer
+      console.log(user1["name"], user1.age, user1.job);
+
+      //JSON (javascript object notation)으로 훨씬 더 많이 표현..
+      var user2 = {
+        name: "suh",
+        age: 30,
+        job: "student",
+      };
+      console.log(user2["name"], user2.age, user2.job);
+      console.log(typeof user2, user2);
+
+      //다른 언어에서는 JSON을 데이터 여러건을 묶는 문자열이지만..
+      //js에서는 문자열이 아니라, 객체이다..
+      //그러다보니, JSON 객체 =>문자열
+      //문자열 =>JSON 객체로 변환 작업이 빈번하다..
+
+      //객체 =>string
+      //node, react에서 정말 많이 쓸 것임!!
+      //{"name":"suh", "age":"30", "job":"student"}
+      //다 문자열로 가져오죠??
+      let strValue = JSON.stringify(user2);
+      console.log(typeof strValue, strValue);
+      //string =>객체
+      let objValue = JSON.parse(strValue);
+      console.log(typeof objValue, objValue);
+    </script>
+  </body>
+</html>

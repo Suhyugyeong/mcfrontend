@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./library_bootstrap/css/bootstrap.min.css" />
+    <script src="./library_bootstrap/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <div class="ccontainer">
+      <div class="row">
+        <!-- offset-md-0도 반응형으로 적용 가능하다..
+        12칸에서의 앞뒤, 중간의 여백인데
+    어느 브레이크 포인트에서는 적용되고 적용되지 않게 할 수 있다..
+    sm 설정을 하면 그 이상에 다 영향을 주기 때문에 md 값에 주고 그 이상에 영향을 안주게 할 수 있음.. -->
+        <div class="col-sm-5 col-md-6 border">colunm</div>
+        <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0 border">
+          colunm
+        </div>
+      </div>
+
+      <!-- clearfix 나머지 칼럼을 다 차지해 그 다음의 구성요소가 다음줄에 나오게 
+    더 들어갈 수 있지만 비워놔라, clearfix도 자주 씀-->
+      <div class="row">
+        <div class="col-sm-6 col-md-3 border">내용</div>
+        <div class="col-sm-6 col-md-3 border">내용</div>
+        <div class="clearfix"></div>
+        <div class="col-sm-6 col-md-3 border">내용</div>
+        <div class="col-sm-6 col-md-3 border">내용</div>
+      </div>
+
+      <!-- 반응형을 하다보면은 배치만 1:1:1 - 2:2 로 하는게 아니라..
+    어떤 경우에는 나오지 말아야 하는 경우도 많다. -->
+      <div class="d-lg-none border">d-lg-none</div>
+      <!-- lg 디바이스 안 나오고 md부터 나올거임 -->
+      <div class="d-none d-lg-block border">d-lg-block</div>
+      <!-- lg 디바이스까지만 나올거임 -->
+
+      <!-- grid가 한줄에 12칸.. 그러나 중첩에 의해 더 복잡한 구조로 설계가 가능한.. -->
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-sm-3 border">colunm1</div>
+          <div class="col-sm-9 border">
+            <div class="row">
+              <!-- 9칸으로 나눈 이 영역이 다시 12칸으로 나눌 수 있다.. -->
+              <div class="col-8 col-sm-6 border">칼럼2</div>
+              <div class="col-4 col-sm-6 border">칼럼3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

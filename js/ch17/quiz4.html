@@ -22,21 +22,28 @@
     <!-- 결과값을 붙여줄 공간이 필요.. -->
 
     <script>
-      let btnCalc = document.getElementById("btnCalc");
-      btnCalc.addEventListener("click", calculation);
+      // let btnCalc = document.getElementById("btnCalc");
+      // btnCalc.addEventListener("click", calculation);
+      document.getElementById("btnCalc").addEventListener("click", calculation);
       //계산 버튼 눌렀을 때 이벤트 발생 => click 했을 때 calculation 함수 발생
-
+      //바로 아래 함수 선언
       function calculation() {
         let num1 = parseInt(document.getElementById("num1").value);
         let num2 = parseInt(document.getElementById("num2").value);
-
+        //두 숫자를 뽑아 온 다음, 밑에는 사칙연산을 뽑아오기
         let selectNode = document.getElementById("select");
         let selectValue = selectNode.options[selectNode.selectedIndex].value;
+        // let selectValue = document.getElementById("select").options[selectNode.selectedIndex].value
+        //이것은 안 되네..
         //이게 select의 옵션값을 가져오는 식(나는 모름...)
         //opsions/selectedIndex/value는 내장..
         //+, -, *, / 인지 뽑아오는거
 
         switch (selectValue) {
+          //이 괄호 안에 swith문의 표현식이 이해가 안 되긴함..
+          //선택한 연산을 식별하여 해당 연산을 수행하기 위해
+          //selectValue가 select 엘리먼트에서 선택한 옵션의 값을 나타내고, 이 값을 평가하고 해당값에 따라 case문을 실행하기 때문에..
+
           case "+":
             result = num1 + num2;
             break;
