@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var name = "global-name"; //변수가 선언되어 있다. 이 변수는 어떤 객체의 프로퍼티로
+      //선언한 것이 아니다..
+      //js 에서는 특별하게 객체를 지칭하지 않으면 window 객체 소속으로 들어간다.
+
+      function myFun() {
+        return this.name;
+      }
+
+      document.write(`<p>step1 : ${myFun()}</p>`);
+
+      var user1 = new Object();
+      user1.name = "김길동";
+      user1.age = 30;
+      user1.getName = myFun;
+
+      var user2 = {
+        name: "이길동",
+        age: 20,
+        getName: myFun,
+      };
+      //step2 : 김길동, 김길동
+      //step3 : 이길동, 이길동
+      document.write(`<p>step2 : ${user1.name}, ${user1.getName()}</p>`);
+      document.write(`<p>step3 : ${user2.name}, ${user2.getName()}</p>`);
+    </script>
+  </body>
+</html>

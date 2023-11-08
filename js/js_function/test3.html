@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Funtion 으로 함수 선언하기..
+      //Function 내의 마지막 매개변수가 함수내용..
+      //Function 의 앞의 매개변수들은 지금 선언하는 함수의 매개변수..
+      let myFun = new Function("x", "y", "let result = x+y; return result;");
+      document.write(`<p>${myFun(10, 20)}</p>`);
+
+      //hoisting 1
+      document.write(`<p>${add(10, 20)}</p>`);
+      function add(x, y) {
+        return x + y;
+      }
+      document.write(`<p>${add(10, 20)}</p>`);
+
+      //hoisting 2
+      //var 로 선언되었다.. 아래 라인에서 에러가 나지만.. hoisting 이 안되서 난 에러는
+      //아니다.. var add1 이 undefined 상태임으로.. 함수로 인지가 안되서 난 에러이다.
+      document.write(`<p>${add1(10, 20)}</p>`);
+      var add1 = function (x, y) {
+        return x + y;
+      };
+      document.write(`<p>${add1(10, 20)}</p>`);
+    </script>
+  </body>
+</html>

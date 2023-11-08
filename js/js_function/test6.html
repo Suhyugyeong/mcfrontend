@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //일반 함수 선언하고 apply, call 로 호출..
+      function add(x, y) {
+        return x + y;
+      }
+      document.write(`<p>${add(10, 20)}</p>`);
+      //call, apply 로 함수 호출,
+      //첫번째 매개변수에 이 함수를 실행시키는 객체를 지정..
+      //두번째 매개변수부터는 그 함수에 전달할 매개변수 값..
+      //call 과 apply 의 차이점은 매개변수를 어떻게 전달할 것인가..
+      //apply 는 매개변수를 배열로 지정.. call 은 쭉 나열..
+      document.write(`<p>${add.call(this, 10, 20)}</p>`);
+      document.write(`<p>${add.apply(this, [10, 20])}</p>`);
+
+      //call, apply 로 함수를 호출하면서.. 객체를 다르게 지정해서..
+      //여러 객체에 함수가 선언된 것 같은 효과를 낼 수 있다..
+      function myFun() {
+        return this.name + "님 환영합니다.";
+      }
+      let user1 = {
+        name: "홍길동",
+        sayHello: myFun,
+      };
+      let user2 = {
+        name: "김길동",
+        sayHello: myFun,
+      };
+      //홍길동, 홍길동님 환영합니다.
+      document.write(`<p>${user1.name}, ${user1.sayHello()}</p>`);
+      //홍길동, 홍길동님 환영합니다.
+      document.write(`<p>${user1.name}, ${myFun.call(user1)}</p>`);
+      //홍길동, 홍길동님 환영합니다.
+      document.write(`<p>${user1.name}, ${user1.sayHello.call(user1)}</p>`);
+      //홍길동, 김길동님 환영합니다.
+      document.write(`<p>${user1.name}, ${user1.sayHello.call(user2)}</p>`);
+    </script>
+  </body>
+</html>
