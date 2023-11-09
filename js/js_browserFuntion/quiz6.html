@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>문화공간</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -15,54 +24,46 @@
         let placeInfo = document.getElementById("info");
 
         button.addEventListener("click", function () {
-          //ajax 객체 준비..
           let xhr = new XMLHttpRequest();
-          //서버 요청 정보 설정..
           xhr.open(
             "get",
-            "http://openapi.seoul.go.kr:8088/63656f5255676565343664714e5963/json/culturalSpaceInfo/1/99",
+            "http://openapi.seoul.go.kr:8088/63656f5255676565343664714e5963/json/culturalSpaceInfo/1/99/",
             true
           );
-          //응답 결과를 받을 콜백 함수 지정..
           xhr.onload = function () {
-            //응답 데이터 획득..
             let result = xhr.responseText;
-            //json 문자열이다.. 이 문자열을 json 객체로 파싱..
             result = JSON.parse(result);
-            let row = result["row"];
-
-            //데이터를 포함해서 결과 데이터를 html tag로 만들어서 출력..
+            let row = result["culturalSpaceInfo"]["row"];
 
             let resultTxt = "";
             for (let i = 0; i < row.length; i++) {
               let name = row[i]["FAC_NAME"];
               let addr = row[i]["ADDR"];
-              let phone = row[i]["PHONE"];
-              let main = row[i]["MAIN"];
-              let image = row[i]["IMAGE"];
+              let phone = row[i]["PHNE"];
+
+              let image = row[i]["MAIN_IMG"];
               let homepage = row[i]["HOMEPAGE"];
 
               resultTxt += `
               <div class="row">
                 <div class="col-10">
                     <div class="row"><h3>${name}</h3></div>
-                    <div class="row">${addr}-${phone}</div>
-                    <div class="row">${main}</div>
+                    <div class="row">${addr}</div>
+                    <div class="row">${phone}</div>
+        
                     <a href="${homepage}">홈페이지로 이동</a>
                     </div>
                     <div class="col-2">
-                        <img src='${image}' class="imag-fluid"/>
+                        <img src='${image}'/>
 
                         </div>
                 </div>
-   
-
               `;
 
-              table.innerHTML = resultTxt;
+              placeInfo.innerHTML = resultTxt;
             }
           };
-          //요청 보낸다..
+
           xhr.send();
         });
       };
