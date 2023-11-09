@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Array 심화</title>
+    <title>배열 심화</title>
   </head>
   <body>
+    <!-- 배열은 순서가 있고, 배열 메서드를 사용할 수 있으며, .length 속성을 가집니다. 
+      유사 배열 객체는 순서가 있을 수 있고, 배열 메서드를 사용할 수 없으며, .length 속성이 존재할 수도 있고 존재하지 않을 수도 있습니다. 
+      객체는 순서가 없으며, 키-값 쌍을 가집니다. -->
     <script>
-      //유사 배열 객체 - array-like object
+      //유사 배열 객체
       //일반 객체인데.. 배열인것 처럼 흉내를 내서 이용..
       //데이터 여러건을(관련된) 가지는 객체를 만들고.. 다른 사람들이 이 객체를 이용한다..
       //이럴 경우 유리
@@ -40,6 +43,7 @@
         1: "gray",
         2: "black",
         length: 3,
+
         //push, pop, shift의 알고리즘.. 한번씩 따져보셔요..
         push: function(value){
             this[this.length] = value

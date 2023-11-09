@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>open API를 이용(ajax실습)</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      window.onload = function () {
+        let button = document.getElementById("btn");
+        let table = document.getElementById("result");
+
+        button.addEventListener("click", function () {
+          //ajax 객체 준비..
+          let xhr = new XMLHttpRequest();
+          //서버 요청 정보 설정..
+          xhr.open(
+            "get",
+            "http://openAPI.seoul.go.kr:8088/63656f5255676565343664714e5963/json/RealtimeCityAir/1/99/",
+            true
+          );
+          //응답 결과를 받을 콜백 함수 지정..
+          xhr.onload = function () {
+            //응답 데이터 획득..
+            let result = xhr.responseText;
+            //json 문자열이다.. 이 문자열을 json 객체로 파싱..
+            result = JSON.parse(result);
+            let row = result["RealtimeCityAir"]["row"];
+
+            //데이터를 포함해서 결과 데이터를 html tag로 만들어서 출력..
+            let resultTxt = "";
+            for (let i = 0; i < row.length; i++) {
+              let name = row[i]["MSRSTE_NM"];
+              let value = row[i]["PM10"];
+              let grade = row[i]["IDEX_NM"];
+
+              resultTxt += `
+              <tr>
+                <td>${name}</td>
+                <td>${value}</td>
+                <td>${grade}</td>
+                </tr>
+                `;
+
+              table.innerHTML = resultTxt;
+            }
+          };
+          //요청 보낸다..
+          xhr.send();
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h3>서울시 실시간 미세먼지 현황</h3>
+    <button id="btn">업데이트</button><br />
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>구</th>
+          <th>미세먼지 수치</th>
+          <th>상태</th>
+        </tr>
+      </thead>
+
+      <tbody id="result"></tbody>
+    </table>
+  </body>
+</html>

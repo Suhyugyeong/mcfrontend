@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>객체 생성 방법(new Object, 객체리터럴-일반, JSON)</title>
   </head>
   <body>
     <script>
@@ -17,10 +17,17 @@
       console.log(user1["name"], user1.age, user1.job);
 
       //JSON (javascript object notation)으로 훨씬 더 많이 표현..
-      var user2 = {
+      //일반적인 객체 리터럴
+      //이걸 권고
+      let user2 = {
         name: "suh",
         age: 30,
         job: "student",
+      };
+      //이걸 JSON 객체 리터럴로 표현하기 위해선
+      let user3 = {
+        name: "yogyeon",
+        //이런식으로 key에 따옴표를 붙여야함..
       };
       console.log(user2["name"], user2.age, user2.job);
       console.log(typeof user2, user2);

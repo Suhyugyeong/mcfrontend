@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>백틱 문자 사용</title>
   </head>
   <body>
     <script>
@@ -36,7 +36,7 @@
       document.write(
         `<p>이름은 ${user.name} 전공은 ${user["major"]} 특징은 ${user.sub}</p>`
       );
-
+      document.write(`<hr/>`);
       //외부에서(객체 선언 부분이 아닌)동적으로 객체의 프로퍼티 추가..
       user.sub = "happyhappy";
       document.write(

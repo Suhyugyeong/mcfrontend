@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Array Loop</title>
+    <title>배열 루프</title>
   </head>
   <body>
     <script>
@@ -13,13 +13,13 @@
       array.unshift(100);
       array.push(600);
       //100,200,300,400,500,600
-      document.write(`<p>${array}</p>`);
-
+      document.write(`<p>첫번째, ${array}</p>`);
+      document.write(`<hr/>`);
       //배열의 모든 데이터를 출력 - for
       //0, 100 ...
       //배열을 할 때 굳이 for문을..
       for (let i = 0; i < array.length; i++) {
-        document.write(`<p>${i}, ${array[i]}</p>`);
+        document.write(`<p>두번째, ${i}, ${array[i]}</p>`);
       }
 
       document.write(`<hr/>`);
@@ -34,9 +34,9 @@
       //for-of가 설계된 이유다..
       //JSON 데이터 아니면 굳이..
       for (let i in array) {
-        document.write(`<p>${i}, ${array[i]}</p>`);
+        document.write(`<p>세번째, ${i}, ${array[i]}</p>`);
       }
-
+      document.write(`<hr/>`);
       //배열의 모든 데이터를 출력하는 for-of
       //of도 추프문에서의 범위 연산자
       //일반 객체에서는 사용할 수 없다..
@@ -47,7 +47,7 @@
       //한번씩 돌면서 index가 아닌 값이 전달된다..
       //배열 핸들링할 때는 of나 forEach가 좋지 않을까...!!
       for (let value of array) {
-        document.write(`<p>${value}</p>`);
+        document.write(`<p>네번째, ${value}</p>`);
       }
       document.write(`<hr/>`);
 
@@ -57,8 +57,16 @@
       //forEach()의 매개변수에 함수 지정.. 이 함수가.. 계속 호출..
       //개발자 함수에 전달되는 매개변수는 값-순서
       //배열 핸들링할 때는 of나 forEach가 좋지 않을까...!!
+      //forEach는 js의 배열에서 사용할 수 있는 반복문(루프)의 한 종류
       array.forEach(function (value, index) {
-        document.write(`<p>${value}, ${index}</p>`);
+        document.write(`<p>다섯번째, ${value}, ${index}</p>`);
+      });
+
+      //일반적인 forEach 사용 - 기본
+      const numbers = [1, 2, 3, 4, 5];
+
+      numbers.forEach(function (number) {
+        console.log(number); //1,2,3,4,5
       });
     </script>
   </body>

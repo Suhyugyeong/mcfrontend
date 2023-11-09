@@ -26,10 +26,12 @@
         }
       }
       //방법2 - js에서 dom node에 이벤트 콜백함수 지정..
+      //여기서 함수명 뒤에 괄호 안 함
       let button2 = document.getElementById("button2");
       button2.onclick = eventFun;
 
       //방법3 - addEventListener 이용..
+       //여기서 함수명 뒤에 괄호 안 함
       let button3 = document.getElementById("button3");
       button3.addEventListener("click", eventFun);
     </script>

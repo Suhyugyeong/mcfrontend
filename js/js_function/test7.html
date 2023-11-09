@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백 함수</title>
+    <script>
+      window.onload = function () {
+        console.log("load 이벤트 발생!!");
+        let btn = document.getElementById("btn");
+        // 일반적으로 script는 head에 담는다..
+        //이럴 경우, 파싱되기 전에 호출하기 때문에 없다고 나올 거임..
+        //DOM handlin 문제 .. DOM Node가 파싱되기 전에...
+        //그래서 window.onload를 작성하는 거임!!
+        btn.addEventListener("click", function () {
+          console.log("click 이벤트 발생!!");
+          //이벤트 콜백함수.. 정의하지만, 호출하지는 않음.. 이게 콜백임..
+          setTimeout(function () {
+            console.log("timeout 이벤트 발생!!");
+          }, 3000);
+          console.log("click 이벤트 완료!!");
+          //시간이지나 자동으로 함수 부르면 그게 콜백..
+        });
+        console.log("load 이벤트 완료!!");
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn">click!</button>
+  </body>
+</html>
