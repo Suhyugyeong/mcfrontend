@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let resultDiv = document.getElementById("result");
+        let xhr = new XMLHttpRequest();
+        xhr.open(
+          "get",
+          "http://openapi.seoul.go.kr:8088/4e6858526f64646436304f4f637471/json/culturalSpaceInfo/1/5/",
+          true
+        );
+        xhr.onload = function () {
+          let result = xhr.responseText;
+          result = JSON.parse(result);
+
+          let rows = result["culturalSpaceInfo"]["row"];
+          let resultTxt = "";
+          for (let i = 0; i < rows.length; i++) {
+            let title = rows[i]["FAC_NAME"];
+            let address = rows[i]["ADDR"];
+            let phone = rows[i]["PHNE"];
+            let image = rows[i]["MAIN_IMG"];
+            let home = rows[i]["HOMEPAGE"];
+
+            resultTxt += `
+              <div class="row">
+                <div class="col-9">
+                  <div class="row"><h3>${title}</h3></div>
+                  <div class="row"><em>${address}</em></div>
+                  <div class="row">${phone}</div>
+                  <div class="row">${home}</div>
+                </div>
+                <div class="col-3">
+                  <img src="${image}" width="100" class="img-fluid"/>
+                </div>
+              </div>
+              <hr class="row"/>
+            `;
+          }
+          resultDiv.innerHTML = resultTxt;
+        };
+        xhr.send();
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <figure class="text-center">
+        <blockquote class="blockquote">
+          <p>서울시 문화정보 공간</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+          https://data.seoul.go.kr/
+        </figcaption>
+      </figure>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>

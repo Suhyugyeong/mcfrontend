@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로토타입</title>
+  </head>
+  <body>
+    <script>
+      //함수 선언.. 일반 함수 선언되었고.. 그 함수의 로직이 필요할때 함수 호출해서 이용
+      function myFun() {
+        let sum = 0;
+        function resultSum() {
+          return 0;
+        }
+      }
+      myFun();
+
+      //함수 선언.. 객체 생성을 위해 생성자 함수로 선언하고 싶다..
+      function User1() {
+        let name = "kim";
+        function sayHello() {
+          console.log(`${this.name}, hello`);
+        }
+      }
+      let obj1 = new User1(); //ok 객체 잘 생성된다..
+      //위의 함수에서는 변수, 함수가 선언되어 있기는 하지만.. 그 함수가 호출되었을때
+      //로직을 돌리기 위한 local member 만 선언된거지.. 객체를 위한 모형이 선언된건
+      //아니다..
+      // console.log(obj1.name)//undefined
+      // obj1.sayHello()//error
+
+      //생성자 함수로 이용할려면 객체 생성시에 객체 멤버로 포함될 변수, 함수를
+      //prototype 에 추가해 주어야 한다..
+      function User2() {
+        User2.prototype.name = "kim";
+        User2.prototype.sayHello = function () {
+          console.log(`${this.name}, hello`);
+        };
+      }
+      let obj2 = new User2();
+      let obj3 = new User2();
+      obj2.name = "lee";
+      obj3.name = "park";
+      obj2.sayHello();
+      obj3.sayHello();
+    </script>
+  </body>
+</html>

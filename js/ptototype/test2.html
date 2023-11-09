@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스</title>
+  </head>
+  <body>
+    <script>
+      //ES6 에 추가된 class 예약어로 객체모형(클래스) 선언..
+      class User {
+        name = "kim";
+        sayHello() {
+          console.log(`${this.name}, hello`);
+        }
+      }
+      //class 를 이용해서 객체 생성해서.. new 로...
+      let obj1 = new User();
+      let obj2 = new User();
+      obj1.name = "lee";
+      obj2.name = "park";
+      obj1.sayHello();
+      obj2.sayHello();
+
+      //원한다면 새로운 클래스를 선언할때 다른 클래스를 상속받아서..
+      class SubUser extends User {
+        subName = "111";
+        subFun = function () {};
+      }
+      let obj3 = new SubUser();
+      obj3.name = "hong";
+      obj3.sayHello();
+      obj3.subName = "222";
+      obj3.subFun();
+    </script>
+  </body>
+</html>
