@@ -8,30 +8,17 @@
   <body>
     <script>
       let output = "";
-      for (
-        let i = 1;
-        i < 10;
-        i++ //영상(let i = 0; i < 9; i++)
-      ) {
-        for (
-          //영상(let j =0; j < i+1; j++)
-          let j = 1;
-          j < i + 1;
-          j++ // for (let j = 1; j < 10; j++) 9개의 별이 9줄 // for (let j = 1; j < i; j++) 처음 공란 끝에 8개까지 9줄
-        ) {
-          output += "*";
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          output += " ";
+        }
+        for (let k = 0; k < 2 * i + 1; k++) {
+          output = "*";
         }
         output += "\n";
       }
-      console.log(output);
 
-      //   let output = "";
-      //   for (let j = 1; j < 10; j++) {
-      //     output += "*";
-      //   }
-      //   output += "\n";
-      //   console.log(output);
-      //   이러면 별9개 한줄 띡
+      console.log(output);
     </script>
   </body>
 </html>
