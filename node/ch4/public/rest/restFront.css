@@ -1,0 +1,8 @@
+/* 개발자가 작성해서 서버에 위치시키는 파일 
+클라이언트 요청시에 그대로 읽어서 클라이언트에 전송될 파일
+즉, 서버사이드 static 파일 <>반대는 dynamic*/
+
+a {
+  color: blue;
+  text-decoration: none;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- 개발자가 작성해서 서버에 위치시키는 파일
+    클라이언트 요청시 그대로 읽어서 클라이언트에 전송될 파일
+    즉, 서버사이드 static 파일
+ -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="public/rest/restFront.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">home</a>
+      <a href="/about">about</a>
+    </nav>
+    <div>
+      <form id="form">
+        <input type="text" id="username" />
+        <button type="submit">등록</button>
+      </form>
+    </div>
+    <!-- 서버에서 받은 데이터 출력해줄 부분임.. -->
+    <div id="list"></div>
+    <!-- AJAX 통신 라이브러리 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="public/rest/restFront.js"></script>
+  </body>
+</html>
