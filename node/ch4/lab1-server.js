@@ -7,6 +7,8 @@ const server = http.createServer((req, res) => {
   //필요한 것만..
   //header 를 해석하는 곳은 이 response 를 받는 브라우저..
   res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+  //key : value 이것도 결국 헤더값임..
+
   //body..
   res.write("<h2>Server Test</h2>");
   res.write("<p>hello world</p>");

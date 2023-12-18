@@ -13,6 +13,7 @@ readStream.on("end", () => {
 readStream.on("error", (err) => {
   console.log("error:", err);
 });
+//읽으라고 명령만 내리고 바로 밑으로 들어오니까 정상적으로 write 안 될 수 있음..
 
 const algorithm = "aes-256-cbc";
 const key = process.env.YOUR_AES_KEY;
@@ -31,18 +32,21 @@ fs.readFile("./quiz.txt", "utf-8", (err, data) => {
   let result = cipher.update(data, "utf-8", "base64");
   result += cipher.final("base64");
   console.log("암호화 결과:", result);
+
+  
 });
 
 // 시스템 변수는 프로그램이 실행되는 환경에 미리 설정되어 있어야 합니다.
 // 터미널에서 아래와 같이 시스템 변수를 설정하고 코드를 실행할 수 있습니다.
-// export YOUR_AES_KEY=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-// export YOUR_AES_IV=aaaaaaaaaaaaaaaa
+// export YOUR_AES_KEY=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 32개
+// export YOUR_AES_IV=aaaaaaaaaaaaaaaa 16개
 // quiz.js
 // 위의 코드에서 your_script.js는 실제로 작성한 코드 파일의 이름으로 대체되어야 합니다.
 //이렇게 시스템 변수를 설정한 후 코드를 실행하면, 코드 내에서 해당 시스템 변수를 읽어와서 사용합니다.
 
 const writeStream = fs.createWriteStream("./quiz2.cipher.txt", "utf-8");
 writeStream.write(result);
+//변수 스코프로 인식 못함..
 writeStream.end();
 
 writeStream.on("finish", () => {
