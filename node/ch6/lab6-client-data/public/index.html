@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- step1.. param -->
+  <h3>param test</h3>
+  <p>
+    <a href="/kim/seoul/10">/kim/seoul/10</a>
+  </p>
+  <p>
+    <a href="/name/kim/data/10">/name/kim/data/10</a>
+  </p>
+
+  <!-- step2.. query -->
+  <h3>query test</h3>
+  <p>
+    <a href="/query1?name=kim&addr=seoul&age=10">/query?name=kim&addr=seoul&age=10</a>
+  </p>
+  <p>
+    <form action="query2" method="get">
+      <!-- form 에 유저가 입력한 데이터는 각 input 의 name 의 값이 key -->
+      name : <input type="text" name="name"/><br/>
+      좋아하는 과일은 : <br/>
+      <!-- 체크박스 등은 여러개 선택이 가능하다.. -->
+      <!-- 하나하나 개별적인 name 일 수도 있고.. -->
+      <input type="checkbox" name="apple" value="apple"> 사과<br/>
+      <input type="checkbox" name="peach" value="peach"> 복숭아<br/>
+      사용하는 IDE는 : <br/>
+      <!-- 이름이 동일한 경우, 두개를 선택하면.. ?ide=vscode&ide=eclipse -->
+      <input type="checkbox" name="ide" value="vscode"> vscode<br/>
+      <input type="checkbox" name="ide" value="eclipse"> eclipse<br/>
+      가장 좋아하는 언어는 : <br/>
+      <input type="radio" name="language" value="HTML">HTML<br/>
+      <input type="radio" name="language" value="CSS">HTML<br/>
+      자동차를 선택하세요:<br />
+      <select name="cars1">
+        <option value="Volvo">Volvo</option>
+        <option value="Audi">Audi</option>
+      </select><br />
+      가지고 싶은 자동차를 선택하세요:<br />
+      <select name="cars2" multiple>
+        <option value="Volvo">Volvo</option>
+        <option value="Audi">Audi</option>
+      </select><br />
+      <input type="submit" />
+    </form>
+  </p>
+
+  <!-- step3.. form - body -->
+  <h3>form body</h3>
+  <p>
+    <!-- post 방식이면 유저 입력 문자열이 request body 로 전달..  -->
+    <form action="form" method="post">
+      name : <input type="text" name="name"/><br/>
+      좋아하는 과일은 : <br/>
+      <input type="checkbox" name="apple" value="apple"> 사과<br/>
+      <input type="checkbox" name="peach" value="peach"> 복숭아<br/>
+      사용하는 IDE는 : <br/>
+      <input type="checkbox" name="ide" value="vscode"> vscode<br/>
+      <input type="checkbox" name="ide" value="eclipse"> eclipse<br/>
+      가장 좋아하는 언어는 : <br/>
+      <input type="radio" name="language" value="HTML">HTML<br/>
+      <input type="radio" name="language" value="CSS">HTML<br/>
+      자동차를 선택하세요:<br />
+      <select name="cars1">
+        <option value="Volvo" selected>Volvo</option>
+        <option value="Audi">Audi</option>
+      </select><br />
+      가지고 싶은 자동차를 선택하세요:<br />
+      <select name="cars2" multiple>
+        <option value="Volvo">Volvo</option>
+        <option value="Audi">Audi</option>
+      </select><br />
+      <input type="submit" />
+    </form>
+  </p>
+
+
+  <!-- step4.. ajax json-->
+  <h3>ajax json</h3>
+  <p>
+    <button id="button1">ajax - json 요청</button><br/>
+    <p id="result1"></p>
+  </p>
+  <script>
+    let button1 = document.getElementById('button1')
+    button1.addEventListener('click', function(){
+      var xhr = new XMLHttpRequest();
+      //post - method
+      //json1 - url
+      //true - 비동기..
+      xhr.open('post', 'json1', true);
+      xhr.setRequestHeader('content-type','application/json')
+      //응답 결과 처리..
+      xhr.onload = function(){
+        var result = xhr.responseText;
+        let resultDom = document.getElementById('result1')
+        resultDom.innerHTML = result
+      };
+      let obj = {
+        name: 'kim',
+        score: 10
+      }
+      //데이터 전송.. 
+		  xhr.send(JSON.stringify(obj));
+    })
+
+  </script>
+
+
+<!-- step5.. ajax string-->
+<h3>ajax string</h3>
+<p>
+  <button id="button2">ajax - string 요청</button><br/>
+  <p id="result2"></p>
+</p>
+<script>
+  let button2 = document.getElementById('button2')
+  button2.addEventListener('click', function(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('post', 'string1', true);
+    xhr.onload = function(){
+      var result = xhr.responseText;
+      let resultDom = document.getElementById('result2')
+      resultDom.innerHTML = result
+    };
+    xhr.send('안녕하세요. hello world');
+  })
+
+</script>
+</body>
+</html>
