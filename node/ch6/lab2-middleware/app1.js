@@ -30,6 +30,8 @@ app.get("/", (req, res) => {
 
 //url 경로에 :xxx 로 등록시키는 것은 url 에 임의 단어(dynamic url)
 app.get("/category/:name", (req, res) => {
+  // :name은 변수처럼 동작하여 해당 위치에 오는 어떤 문자열이든 req.params.name으로 사용할 수 있습니다.
+  //예를 들어, /category/apple, /category/banana와 같이 다양한 값을 받아 처리할 수 있습니다.
   //위에 url 경로에 :aaa 이면 req.params.aaa
   res.send(`category/:name... ${req.params.name}`);
 });
@@ -37,7 +39,9 @@ app.get("/category/:name", (req, res) => {
 //http://localhost:3000/category/lee ==> category/:name... lee
 
 app.get("/category/park", (req, res) => {
+  //"/category/park"는 정적인 경로에 대한 라우터를 설정하는 부분입니다.
   //위에 url 경로에 :aaa 이면 req.params.aaa
+  //정확한 문자열 "/category/park"에 대한 GET 요청에 대해 응답을 생성합니다.
   res.send(`category/park... `);
 });
 //http://localhost:3000/category/park ==> 위의 미들웨어 실행 안된다..
@@ -60,8 +64,13 @@ app.get("/user/:name", (req, res) => {
   res.send(`user/:name...${req.params.name} `);
 });
 app.get("*", (req, res) => {
+  //"*"는 와일드카드(wildcard) 경로로, 모든 경로에 대한 일반적인 라우터를 설정하는 부분입니다.
+  //이 라우터는 모든 GET 요청에 대해 매칭되며, 앞의 두 라우터가 매칭되지 않은 경우에 실행됩니다.
+
   //위에 url 경로에 :aaa 이면 req.params.aaa
   res.send(`*... `);
+  //이 코드의 핵심은 경로에 따라 다른 라우터가 실행되며,
+  //와일드카드 라우터(app.get("*", ...))는 앞의 두 라우터가 매칭되지 않은 모든 경로에 대해 실행된다는 것입니다.
 });
 
 //미들웨어에서 다음 미들웨어를 실행시키기 위해서 사용하는 함수, next()

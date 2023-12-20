@@ -1,0 +1,34 @@
+remote url + 인증정보 포함.. 
+http://username:key@url
+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
+
+https://kkang_daum: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@github.com/kkang-daum/test1.git
+
+
+https://kkang_daum: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@github.com/kkang-daum/front_html_css.git
+
+
+https://kkang_daum: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@github.com/kkangsorg3/test1.git
+
+
+-- 컴퓨터에 저장되어 있는 git 인증서 모두 초기화..
+-- 시스템 정보 변경하려면.. git bash 를 관리자 권한으로 실행시켜야..
+>git config --system --unset credential.helper
+>git config --global--unset credential.helper
+>git config --local--unset credential.helper
+
+
+
+
+57584571696b6b6137307868494377
+http://openAPI.seoul.go.kr:8088/(인증키)/xml/RealtimeCityAir/1/5/
+http://openAPI.seoul.go.kr:8088/57584571696b6b6137307868494377/json/RealtimeCityAir/1/99/
+
+
+
+8d90d6af81ac4107a44b71f4483e3f3a
+
+https://newsapi.org/v2/everything?q=Apple&from=2023-11-01&to=2023-11-09&sortBy=popularity&apiKey=8d90d6af81ac4107a44b71f4483e3f3a
+
+
+https://www.google.co.kr/maps/@위도,경도,16z

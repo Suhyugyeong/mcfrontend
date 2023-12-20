@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.send("get... /about");
-});
+}); //'/'와 '/about'의 차이는 노트 참고
 
 app.use((req, res, next) => {
   console.log("middleware3, before next");

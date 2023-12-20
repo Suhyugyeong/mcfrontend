@@ -1,0 +1,22 @@
+<!-- 클라이언트 파일 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <!-- 알아서 파일 탐색창 지원, 원한다면 type=text로 다른 입력 데이터 같이 넘겨도 됨
+        multer에서 지원함 -->
+      <input type="file" name="file1" />
+      <button type="submit" value="업로드"></button>
+    </form>
+  </body>
+</html>

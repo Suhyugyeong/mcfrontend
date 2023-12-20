@@ -5,11 +5,16 @@ app.set("port", process.env.PORT || 3000);
 
 app.get("/", (req, res) => {
   res.send("/.. hello express");
+  //클라이언트가 웹 브라우저나 다른 HTTP 클라이언트를 통해 애플리케이션의 루트 경로에 접근했을 때, "/.. hello express"라는 텍스트를 응답으로 보내주는 간단한 라우터
 });
 
 //서버 오류 상황..
 app.get("/test/:no", (req, res) => {
+  //"/test/:no"는 요청이 발생한 URL 경로를 나타냅니다.
+  //:no는 동적인 세그먼트로, 해당 위치에 입력된 값을 파라미터로 받아오게 됩니다.
   let no = req.params.no; //url 에 경로로 추가된 데이터를 파라미터라고..
+  //:no는 Express.js 라우팅에서 사용되는 동적인 라우트 파라미터(dynamic route parameter)입니다. 이 표현은 URL의 일부로 사용되며, 실제 요청에서 해당 부분에 들어오는 값을 변수로 처리할 수 있도록 합니다.
+  //예를 들어, /test/123과 같은 URL에서 /test/는 정적인 부분이고, 123은 동적인 부분입니다. 이 동적인 부분을 :no로 표현한 것입니다.
   if (no > 10) {
     res.send(`정상적인 상황, 당신이 입력한 숫자는 ${no} 입니다.`);
   } else {

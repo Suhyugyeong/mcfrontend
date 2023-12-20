@@ -7,31 +7,29 @@ app.set("port", process.env.PORT || 3000);
 
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
-
+//path.join(__dirname, "public"): 정적 파일들이 위치한 디렉토리의 경로를 나타냅니다. __dirname은 현재 스크립트가 위치한 디렉토리의 경로를 나타냅니다. "public"은 정적 파일들이 위치한 서브 디렉토리의 이름입니다
 //test1.... param 데이터..
-//client 요청 url 의 path 값 추출..
-//path 부분에 데이터를 받고자 하는 곳에 :xxx
 app.get("/:name/:addr/:age", (req, res) => {
+  //:name은 라우트 매개변수 또는 라우터 파라미터
   res.send(
     `param test1 : ${req.params.name}, ${req.params.addr}, ${req.params.age}`
   );
 });
 app.get("/name/:name/data/:data", (req, res) => {
   res.send(`param test2 : ${req.params.name}, ${req.params.data}`);
-});
+}); //params는 라우트 매개변수에 대한 값을 포함
 //http://localhost:3000/index.html
 
 //test2...... query(search) 문자열 획득..
-//url ? 뒤에 등록되어 전달되는 데이터..
-//url 이 request header 정보임으로.. query 문자열은 body 데이터는 아니고..
-//header 데이터..
+//query 문자열은 body 데이터는 아니고 header 데이터..
+//Express 애플리케이션에서 GET 요청에 대한 특정 경로(/query1)에 대한 핸들러를 정의
 app.get("/query1", (req, res) => {
   res.send(`
   query1 test: name=${req.query.name}, addr=${req.query.addr}, age=${req.query.age}`);
 });
 
 app.get("/query2", (req, res) => {
-  let ide = req.query.ide;
+  let ide = req.query.ide; //클라이언트가 전달한 쿼리 매개변수 중에서 ide를 가져옴
   console.dir(ide);
   //ide 로 데이터가 안넘어 올수도 있고(유저가 선택 안했다면)
   //ide 로 데이터가 하나만 넘어올수도 있고.. (유저가 하나만 선택하면..)
@@ -40,9 +38,9 @@ app.get("/query2", (req, res) => {
   if (ide && Array.isArray(ide)) {
     ide.forEach((element) => {
       ideResult += element + ",";
-    });
+    }); //ide가 배열로 전달된 경우
   } else {
-    ideResult = ide;
+    ideResult = ide; //ide가 하나일 경우
   }
 
   let car2 = req.query.cars2;
@@ -73,7 +71,8 @@ app.get("/query2", (req, res) => {
 //extended 옵션, express 의 바디 파서가 내부적으로 이용하는 모듈이 여러개 준비되어 있는데
 //QS 라는 모듈을 이용해서 바디를 파싱해라...
 //거의 대부분 QS 모듈을 이용
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //이 옵션을 사용하면 qs 라이브러리를 사용하여 URL-encoded 데이터를 해석합니다
+//extended: false: 이 옵션을 사용하면 Node.js의 기본 내장 모듈인 querystring을 사용하여 URL-encoded 데이터를 해석
 app.post("/form", (req, res) => {
   let ide = req.body.ide;
   console.dir(ide);
@@ -122,6 +121,7 @@ app.post("/json1", (req, res) => {
 
 //test5... ajax, 일반문자열..
 var bodyParser = require("body-parser");
+//body-parser는 Express 애플리케이션에서 POST 요청의 본문(body)을 쉽게 파싱하기 위한 Node.js 미들웨어입니다
 app.use(bodyParser.text()); //일반 문자열이다..
 app.post("/string1", (req, res) => {
   res.send(`string data : ${req.body}`);
