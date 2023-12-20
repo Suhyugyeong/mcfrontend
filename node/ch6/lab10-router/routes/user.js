@@ -23,3 +23,4 @@ router.get("/list", (req, res) => {
 });
 
 module.exports = router;
+//현재 모듈에서 router 객체를 외부로 내보내겠다는 의미입니다.

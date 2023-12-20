@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>nunjucks test</h3>
+    <p>{{name}}</p>
+    <p>{{count + 10}}</p>
+    <p>{{isCheck}}</p>
+    <p>{{datas[0]}}, {{objk.data1}}</p>
+    <!-- 템플릿 파일 내에서 약식의 언어적인 기능이 필요하다면..  변수선언, 조건문, 반복문-->
+    {% set data1 = 'hello' %}
+    <p>data1 : {{data1}}</p>
+  </body>
+</html>
