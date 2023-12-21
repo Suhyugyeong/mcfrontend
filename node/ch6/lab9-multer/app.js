@@ -16,7 +16,8 @@ const upload = multer({
   //multer는 express와 함께 사용
   //저장 위치 설정.. 클라우드 스토리지도 제공한다..
   storage: multer.diskStorage({
-    //multer.diskStorage는 multer 미들웨어에서 사용할 수 있는 저장소 엔진을 생성하기 위한 함수입니다. 이 함수는 두 개의 옵션을 가지고 있습니다: destination과 filename.
+    //multer.diskStorage는 multer 미들웨어에서 사용할 수 있는 저장소 엔진을 생성하기 위한 함수입니다.
+    //이 함수는 두 개의 옵션을 가지고 있습니다: destination과 filename.
     destination(req, file, done) {
       //첫번째 매개변수가 null 이 아니면 에러다..
       done(null, "uploads/"); //콜백 함수로, 첫 번째 매개변수에는 에러를 전달하고, 두 번째 매개변수에는 저장될 폴더의 경로를 전달합니다.
